@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.navbar-brand{
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+}
+#banner-desktop{
+    background-color: white;
+}
+#banner-mobile{
+    background-color: white;
+    font-size: 15px;
+}
+.row1,.row{
+    padding-top: 30vh;
+}
+
+.my-btn{
+    height: 70px;
+    width: 200px;    
+    color: white;
+    border-radius: 20px;
+    border: none;
+    margin: 0 0 10px 0;
+}
+.my-btn >a {
+    text-decoration: none;
+    color: white;
+}
+.my-btn-mobile{
+    height: 50px;
+    width: 100px;    
+    color: white;
+    border-radius: 10px;
+    border: none;
+    margin: 0 0 10px 0;
+}
+.my-btn-mobile >a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.my-btn-mobile2{
+    height: 30px;
+    width: 80px;    
+    color: white;
+    border-radius: 10px;
+    border: none;
+    margin: 0 0 10px 0;
+}

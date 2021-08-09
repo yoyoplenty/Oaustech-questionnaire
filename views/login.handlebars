@@ -1,0 +1,52 @@
+<section id="banner-desktop" class="d-block">
+    <div class="container" style="height: 80vh;">
+        <div class="row2">
+            <div class="col-md-12" style="margin-top: 10%;">
+                <h5 class="text-center">Login below</h5>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row2 d-flex justify-content-center align-items-center">
+                <div class="col-md-12 w-50" style="border: solid 1px; border-radius: 10px; padding: 10px 50px">
+                    {{!-- {{#if message}}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{{message}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {{/if}} --}}
+                    {{>messages}}
+                    <form method="POST" action="/student/login">
+
+                        <div class="mb-3">
+                            <label for="exampleInputMatricNo" class="form-label">Matric Number</label>
+                            <input type="text" name="matricNo" class="form-control" id="exampleInputMatricNo" required
+                                value="{{student.matricNo}}">
+
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                                value="{{student.password}}">
+                        </div>
+
+
+                        <div class="col-md-12 text-center" style="margin-top: 5%;">
+                            <button class="btn-danger btn-lg d-grid gap-2 mx-auto">Login</button>
+                        </div>
+
+                        <div class="col-md-12 text-center" style="margin-top: 5%;">
+                            <p style="margin-top:10%;"> Not yet registered? <a href="/student/register"
+                                    style="text-decoration: none;"> Register </a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

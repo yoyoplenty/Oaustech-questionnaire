@@ -1,0 +1,82 @@
+<section id="banner-desktop" class="d-block">
+    <div class="container w-50" style="height: 80vh;padding-bottom: 50px">
+        <div class="row2">
+            <div class="col-md-12">
+                <h3 class="text-center">Register below</h3>
+            </div>
+        </div>
+
+        <div class="container"
+            style="background-color: white;box-shadow: 5px 5px 2px grey;width: 75%; border: solid 1px rgba(184, 16, 16, 0.742); padding-top: 20px; border-radius: 10px; margin-bottom: 40px">
+            <div class="row2">
+                {{>messages}}
+                <div class="col-md-12 p-4">
+                    <form method="POST" action="/student/signup" enctype="application/x-www-form-urlencoded">
+                        <div class="mb-3">
+                            {{!-- <label for="exampleInputSurname" class="form-label">firstname</label> --}}
+                            <input type="text" name="firstname" class="form-control" id="exampleInputSurname"
+                                placeholder="firstname" required>
+                        </div>
+
+                        <div class="mb-3">
+                            {{!-- <label for="exampleInputFirstName" class="form-label">Surname</label> --}}
+                            <input type="text" name="surname" class="form-control" id="exampleInputFirstName"
+                                placeholder="Surname" required>
+                        </div>
+
+                        <select class="form-select mb-3" name="program" aria-label="Default select example">
+                            <option selected>Program</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="csc">Computer Science</option>
+                            <option value="stat">Statistics</option>
+                        </select>
+
+                        <select class="form-select mb-3" name="level" aria-label="Default select example">
+                            <option selected>Level</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="300">300</option>
+                            <option value="400">400</option>
+                            <option value="500">500</option>
+                        </select>
+
+                        <div class="mb-3">
+                            {{!-- <label for="exampleInputMatricNo" class="form-label">Matric Number</label> --}}
+                            <input type="text" name="matricNo" class="form-control" id="exampleInputMatricNo"
+                                placeholder="Matric Number" required>
+                        </div>
+
+                        <div class="mb-3">
+                            {{!-- <label for="exampleInputEmail1" class="form-label">Email address</label> --}}
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Email address">
+                        </div>
+
+                        <div class="mb-3">
+                            {{!-- <label for="exampleInputPassword1" class="form-label">Password</label> --}}
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+
+                        <div class="mb-3">
+                            {{!-- <label for="exampleInputPassword1" class="form-label">Confirm Password</label> --}}
+                            <input type="password" name="password2" class="form-control" id="exampleInputPassword1"
+                                placeholder="Confirm Password">
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn-danger btn-lg d-grid gap-2 mx-auto">Register</button>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <p> Already registered? <a href="/student/login" style="text-decoration: none;"> Login
+                                </a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
