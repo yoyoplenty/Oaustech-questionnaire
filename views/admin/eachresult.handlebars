@@ -1,0 +1,85 @@
+<section id="" style="padding-top: 2%;">
+
+    <div class="col-12 text-center">
+        <h4 class="text-secondary"><b>Response to {{course}} Questions</b></h4>
+    </div>
+
+    <div class="container">
+        <div class="text-start">
+            <p>
+                Questionnaire is designed to assess Lecture's capacity to deliver lecture effectively well such that the
+                objectives of
+                the course are achieved. Please complete the questionnaire objectively because your response will go a
+                long way in helping
+                the University to address shortcomings in lecture delivery and you can be rest assured of the
+                confidentiality of your response.
+            </p>
+        </div>
+
+        <div class="row question-row" style="margin-top: 0vh !important;">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <ul class="nav text-center">
+                    <li class="list-item mx-auto">
+                        Strongly Agree
+                    </li>
+                    <li class="list-item mx-4">
+                        Agree
+                    </li>
+                    <li class="list-item mx-3">
+                        Neutral
+                    </li>
+                    <li class="list-item mx-3">
+                        Disagree
+                    </li>
+                    <li class="list-item mx-1">
+                        Strongly Disagree
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row question-row">
+
+            {{#each question}}
+            <div class="col-md-7">
+                <p class="text-start">
+                    {{this.sn}}. {{this.question}}
+                </p>
+            </div>
+            <div class="col-md-5">
+                <ul class="nav">
+
+                    <li class="mx-auto list-item">
+                        <p>5</p>
+                    </li>
+                    <li class="mx-auto list-item">
+                        <p>5</p>
+                    </li>
+                    <li class="mx-auto list-item">
+                        <p>5</p>
+                    </li>
+                    <li class="mx-auto list-item">
+                        <p>5</p>
+                    </li>
+
+                </ul>
+            </div>
+            {{/each}}
+
+
+
+
+
+        </div>
+
+        <div class="col-md-12 text-center my-5">
+            <button class="my-btn-mobile btn-danger" type="submit"><b>PRINT</b></button>
+        </div>
+        </form>
+
+
+    </div>
+</section>

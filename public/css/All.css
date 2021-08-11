@@ -15,6 +15,9 @@
     background-color: white;
     font-size: 15px;
 }
+.question-row {
+    padding-top: 5vh !important;
+}
 .row1,.row{
     padding-top: 30vh;
 }

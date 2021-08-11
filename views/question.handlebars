@@ -1,6 +1,5 @@
-<section id="banner-desktop" class="d-block" style="padding-top: 2%;">
-    <div class="container" style="height: 80vh;">
-
+<section id="" style="padding-top: 2%;">
+    <div class="container">
         <div class="text-start">
             <p>
                 Questionnaire is designed to assess Lecture's capacity to deliver lecture effectively well such that the
@@ -12,22 +11,23 @@
             </p>
         </div>
 
-        <div class="row1" style="padding-top:10vh;">
-            <div class="col-12 text-end">
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
+        <div class="row question-row" style="margin-top: 0vh !important;">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <ul class="nav text-center">
+                    <li class="list-item mx-auto">
                         Strongly Agree
                     </li>
-                    <li class="list-item">
+                    <li class="list-item mx-4">
                         Agree
                     </li>
-                    <li class="list-item">
+                    <li class="list-item mx-3">
                         Neutral
                     </li>
-                    <li class="list-item">
+                    <li class="list-item mx-3">
                         Disagree
                     </li>
-                    <li class="list-item">
+                    <li class="list-item mx-1">
                         Strongly Disagree
                     </li>
 
@@ -35,651 +35,51 @@
             </div>
         </div>
 
+        <form method="POST" action="/result/" enctype="application/x-www-form-urlencoded">
+            <div class="row question-row">
 
-        <div class="row1" style="padding-top:10vh;">
+                {{#each question}}
+                <div class="col-md-7">
+                    <p class="text-start">
+                        {{this.sn}}. {{this.question}}
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <ul class="nav">
+                        <li class="mx-auto list-item">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option"
+                                value='{ {{this.sn}}: "StronglyAgree"}'>
+                        </li>
+                        <li class="mx-auto list-item">
+                            <input class="mx-auto form-check-input" type="checkbox" id="inlineCheckbox2" name="option"
+                                value='{ {{this.sn}}: "agree"}'>
+                        </li>
+                        <li class="mx-4 list-item">
+                            <input class="mx-auto form-check-input" type="checkbox" id="inlineCheckbox3" name="option"
+                                value='{ {{this.sn}}: "neutral"}'>
+                        </li>
+                        <li class="mx-auto list-item">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option"
+                                value='{ {{this.sn}}: "disagree"}'>
+                        </li>
+                        <li class="mx-auto list-item">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option"
+                                value='{ {{this.sn}} : "StronglyDisagree"}'>
+                        </li>
+                    </ul>
+                </div>
+                {{/each}}
 
-            <div class="col-md" style="float: right;">
 
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
 
-                </ul>
 
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 1. Course increased my knowledge of the subject</p>
-            </div>
-        </div>
-
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
 
             </div>
 
-            <div class="col-md-5">
-                <p class="text-start"> 2. The Course clearly stated the course objectives </p>
+            <div class="col-md-12 text-center my-5">
+                <button class="my-btn-mobile btn-danger" type="submit"><b>SUBMIT</b></button>
             </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 3. The Lecturer was well prepared for the lecture</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 4. The Lecturer presented and communicated the subject Matter in a clear language
-                </p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 5. My interest in the course was stimulated more by the Lecturer</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 6. The assignments were effective learning tools</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 7. The Lecturer was always punctual in class</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 8. The Lecturer treated all students fairly and equitably</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 9. The Lecturer is accessible and ready to help when needed</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 10. The Lecturer covered the entire course content</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 11. The infrastructures provided for the lectures are adequate</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 12. Mode of lecture presentation satisfactory</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 13. Accessibility and regularity of internet facilities are adequate</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 14. The environmental conditions (illumination, ventilation, Cleanliness, space
-                    etc) are satisfactory</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 15. Frequency and number of continuous assessment Conducted are satisfactory</p>
-            </div>
-        </div>
-        <div class="row1" style="padding-top:2vh;">
-
-            <div class="col-md" style="float: right;">
-
-                <ul class="nav justify-content-end">
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="option2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option3"
-                            value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option4"
-                            value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4"></label>
-                    </li>
-                    <li class="list-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option5"
-                            value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5"></label>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-md-5">
-                <p class="text-start"> 16. Our assessment scores were returned</p>
-            </div>
-        </div>
-
-
-        <div class="row text-center" style="padding-top: 10vh;">
-            <div class="col-md-4">
-                <button class="my-btn btn-danger" onclick="document.location='#'">Save</button>
-            </div>
-
-            <div class="col-md-4">
-                <button class="my-btn btn-danger" onclick="document.location='#'">Next Course</button>
-            </div>
-
-            <div class="col-md-4">
-                <button class="my-btn btn-danger" onclick="document.location='#'">Saved Courses</button>
-            </div>
-
-        </div>
-
+        </form>
 
 
     </div>

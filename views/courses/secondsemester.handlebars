@@ -1,28 +1,31 @@
-<section id="banner-desktop" class="d-none d-sm-block" style="padding-top: 2%;">
+<section id="banner-desktop" class="" style="padding-top: 2%;">
     <div class="container" style="height: 80vh;">
         <div class="col-md-12">
             <h5 class="text-center"> Second Semester for {{student.level}} level </h5>
         </div>
 
-        <div class="row text-center" style="padding-top: 15vh;">
+        {{>messages}}
 
-            <div class="col-md-6 text-center">
+        <div class="row text-center" style="padding-top: 5vh;">
+
+            <div class="col-6 text-center">
                 {{#each second}}
                 <div class="my-2">
                     <h5 class="text-secondary"></h5>
-                    <button class="btn btn-lg btn-danger"><a style="text-decoration: none;"
-                            class="text-light"><b>{{this.courseName}} {{this.courseCode}}</b></a></button>
+                    <button class="my-btn-mobile btn-danger"><a style="text-decoration: none;"
+                            class="text-light my-2"><b>{{this.courseName}} {{this.courseCode}}</b></a></button>
                 </div>
                 {{/each}}
 
             </div>
 
 
-            <div class="col-md-6 text-center">
+            <div class="col-6 text-center">
                 {{#each second}}
-                <div class="text-center">
-                    <button class="my-btn-mobile btn-danger"><a href="" style="text-decoration: none;"
-                            class="text-light"><b>Assess</b></a></button>
+                <div class="my-2">
+                    <button class="my-btn-mobile btn-danger"><a
+                            href="/student/question/{{this.courseName}}{{this.courseCode}}"
+                            style="text-decoration: none;" class="text-light"><b>ASSESS</b></a></button>
                 </div>
                 {{/each}}
             </div>

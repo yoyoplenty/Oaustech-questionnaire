@@ -19,7 +19,8 @@ const index = require("./routes/index"),
 	admin = require("./routes/admin"),
 	course = require("./routes/course"),
 	question = require("./routes/questions"),
-	student = require("./routes/students");
+	student = require("./routes/students"),
+	result = require("./routes/result")
 
 //set Database
 mongoose.connect(
@@ -93,6 +94,7 @@ app.use("/admin", admin);
 app.use("/course", course);
 app.use("/student", student);
 app.use("/question", question);
+app.use("/result", result);
 
 //ser PORT
 let PORT = process.env.PORT || 3030;

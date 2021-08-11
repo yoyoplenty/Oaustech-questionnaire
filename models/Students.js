@@ -2,29 +2,32 @@ const mongoose = require('mongoose')
 const slug = require('mongoose-slug-generator')
 
 
-
 const studentSchema = new mongoose.Schema({
     surname: {
         type: String,
         require: true
     },
-    firstname : {
+    firstname: {
         type: String,
         required: true
     },
-    matricNo : {
-       type : String,
-       required: true 
-    },
-    email : {
+    sex: {
         type: String,
         required: true
     },
-    level : {
+    matricNo: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    level: {
         type: Number,
         required: true
     },
-    program : {
+    program: {
         type: String,
         required: true
     },

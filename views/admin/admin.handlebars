@@ -1,12 +1,12 @@
-<section id="banner-desktop" class="d-none d-sm-block" style="padding-top: 2%;">
+<section id="banner-desktop" class="" style="padding-top: 2%;">
     <div class="container" style="height: 80vh;">
         <div class="row" style="height: 40vh; padding-top: 10vh;">
-            <div class="col-md-6 text-end">
-                <img src="./IMG/User.svg" class="img-thumbnail" alt="User Image" style="width: 120px; height: 120px;">
+            <div class="col-md-6 text-center">
+                <img src="./IMG/User.svg" class="img-thumbnail" alt="Admin Image" style="width: 120px; height: 120px;">
 
             </div>
 
-            <div class="col-md-6 text-start">
+            <div class="col-md-6 text-center">
                 <p class="h5">{{admin.name}}</p>
                 <p class="h5">{{student.worklevel}} Level</p>
                 <p class="h5">{{student.program}}</p>
@@ -16,15 +16,34 @@
 
 
 
-        <div class="row text-center">
-            <div class="col-md-6">
-                <button class="my-btn btn-danger"><a href="/course/">Add courses</a></button>
+        <div class="row question-row text-center">
+            <div class="col-sm-6">
+                <button class="my-btn btn-danger"><a href=""><b>Get all courses</b></a></button>
             </div>
 
-            <div class="col-md-6">
-                <button class="my-btn btn-danger"><a href="/question/">Add questions</a></button>
+            <div class="col-sm-6">
+                <button class="my-btn btn-danger"><a href=""><b>Get all questions</b></a></button>
+            </div>
+        </div>
+
+
+
+        <div class="row question-row text-center">
+            <div class="col-sm-6">
+                <button class="my-btn btn-danger"><a href="/course/"><b>Add courses</b></a></button>
             </div>
 
+            <div class="col-sm-6">
+                <button class="my-btn btn-danger"><a href="/question/"><b>Add questions</b></a></button>
+            </div>
+        </div>
+
+
+
+        <div class="question-row row text-center my-4">
+            <div class="col-12">
+                <button class="my-btn btn-danger"><a href="/result/"><b>Results</b></a></button>
+            </div>
         </div>
 
     </div>

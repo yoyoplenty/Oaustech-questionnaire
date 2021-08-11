@@ -1,0 +1,31 @@
+<div class="container">
+
+    {{>messages}}
+
+    <div class="text-center my-3">
+        <span>
+            <button class="my-btn-mobile d-inline btn-danger">{{totalNo}}</button>
+            <p class="text-muted"><b>Total Numbers of Courses</b></p>
+        </span>
+    </div>
+
+    <div class="question-row row">
+        {{#each course}}
+        <div class="col-sm-3 mb-2 text-center text-white">
+            <button class="my-btn-mobile btn-danger"><a href="/result/{{this.courseName}}{{this.courseCode}}"
+                    style="text-decoration: none;" class="text-white"><b>{{this.courseName}}
+                        {{this.courseCode}}</b></a></button>
+
+        </div>
+        {{/each}}
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+    </div>
+</div>

@@ -1,7 +1,6 @@
 const Question = require("../models/question");
 
 exports.createQuestion = async (req, res) => {
-	console.log(req.body);
 
 	const question = await Question.create({
 		sn: (await Question.countDocuments()) + 1,

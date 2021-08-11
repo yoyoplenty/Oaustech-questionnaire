@@ -1,21 +1,18 @@
 const Student = require("../models/Students"),
 	utility = require("../services/utilities"),
 	bcrypt = require("bcryptjs"),
-	Courses = require("../models/courses")
+	Courses = require("../models/courses"),
+	Question = require("../models/question")
 
 exports.getRegistrationForm = async (req, res) => {
-	console.log("I will get the registration form now");
 	res.render("register");
 };
 
 exports.getLoginForm = async (req, res) => {
-	console.log("I will get the login form now");
 	res.render("login");
 };
 
 exports.signup = async (req, res) => {
-	console.log("I will send the registration details now");
-
 	console.log(req.body);
 
 	var {
@@ -113,7 +110,6 @@ exports.signup = async (req, res) => {
 };
 
 exports.signin = async (req, res) => {
-	console.log("I will send the login details now");
 	const { matricNo } = req.body;
 	const student = await Student.findOne({ matricNo: matricNo });
 	if (!student) {
@@ -340,8 +336,13 @@ exports.getEachCourseQuestion = async (req, res) => {
 		//set session to particular course
 		req.session.course = courses;
 
+		//get Questions from database
+		let question = await Question.find({})
+
 		if (courses) {
-			res.render('question', {})
+			return res.render('question', {
+				question: question
+			})
 		}
 	} catch (error) { }
 };
