@@ -13,6 +13,16 @@ exports.createresult = async (req, res) => {
 
         console.log(req.body)
         // i will still implement it that once a student with that matric no and same with course is found he wont be able to create the course, since he has submitted as well
+        let courseClicked = await Result.findOne({
+            $and: [{ matricNo: student.matricNo }, { course: course.course }],
+        });
+
+        if (courseClicked) {
+            return res.render('studentdashboard', {
+                error: `Cannot submit course ${course.course}, You have given a response already`,
+                student
+            })
+        }
 
         const result = new Result({
             course: course.course,
@@ -40,14 +50,43 @@ exports.createresult = async (req, res) => {
 
 exports.getresult = async (req, res) => {
     try {
-        let allcourses = await Courses.find({})
+        //get all courses
+        let Course = await Courses.find({})
         let totalNo = await Courses.find({}).countDocuments()
+        let allCourses = Course.slice(0)
+
+        //render the courses based on level
+
+        //to get 100 level course
+        let all100 = allCourses.filter(function (first) {
+            return first.courseCode.charAt('0') == 1
+        })
+        //to get 200 level course
+        let all200 = allCourses.filter(function (first) {
+            return first.courseCode.charAt('0') == 2
+        })
+        //to get 300 level course
+        let all300 = allCourses.filter(function (first) {
+            return first.courseCode.charAt('0') == 3
+        })
+        //to get 400 level course
+        let all400 = allCourses.filter(function (first) {
+            return first.courseCode.charAt('0') == 4
+        })
+        //to get 500 level course
+        let all500 = allCourses.filter(function (first) {
+            return first.courseCode.charAt('0') == 5
+        })
 
         //still want to render each courses in bootstrap row based on level
         //dont want it to be hard coded
         console.log(totalNo)
         res.render('admin/allcourse', {
-            course: allcourses,
+            all100,
+            all200,
+            all300,
+            all400,
+            all500,
             totalNo
         })
 
@@ -58,7 +97,7 @@ exports.geteachresult = async (req, res) => {
         let courses = req.params
         //set session to particular course
         req.session.course = courses;
-        //get Questions from database
+        //get all results from database
         let result = await Result.find({})
         //get result that matches the course clicked
         let results = await Result.find({ course: courses.course })
