@@ -1,5 +1,12 @@
-<section id="" style="padding-top: 2%;">
+<section id="" style="padding-top: 4%;">
     <div class="container">
+
+        <div class="col-12 text-center">
+            <h4 class="text-secondary"><b> {{course}} Questionnaire</b></h4>
+        </div>
+
+
+        {{>messages}}
         <div class="text-start">
             <p>
                 Questionnaire is designed to assess Lecture's capacity to deliver lecture effectively well such that the
@@ -11,60 +18,88 @@
             </p>
         </div>
 
+
         <div class="row question-row" style="margin-top: 0vh !important;">
-            <div class="col-md-7"></div>
-            <div class="col-md-5">
+
+            <div class="col-7"></div>
+
+            <div class="col-5 d-none d-lg-block">
                 <ul class="nav text-center">
                     <li class="list-item mx-auto">
                         Strongly Agree
                     </li>
-                    <li class="list-item mx-4">
+                    <li class="list-item mx-auto">
                         Agree
                     </li>
-                    <li class="list-item mx-3">
+                    <li class="list-item mx-auto">
                         Neutral
                     </li>
-                    <li class="list-item mx-3">
+                    <li class="list-item mx-auto">
                         Disagree
                     </li>
-                    <li class="list-item mx-1">
+                    <li class="list-item mx-auto">
                         Strongly Disagree
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-5 d-sm-block d-lg-none">
+                <ul class="nav text-center">
+                    <li class="list-item mx-auto">
+                        <b>S.A</b>
+                    </li>
+                    <li class="list-item mx-auto">
+                        <b>A</b>
+                    </li>
+                    <li class="list-item mx-auto">
+                        <b>N</b>
+                    </li>
+                    <li class="list-item mx-auto">
+                        <b>D</b>
+                    </li>
+                    <li class="list-item mx-auto">
+                        <b>S.D</b>
                     </li>
 
                 </ul>
             </div>
+
+
+
+
         </div>
 
         <form method="POST" action="/result/" enctype="application/x-www-form-urlencoded">
             <div class="row question-row">
 
                 {{#each question}}
-                <div class="col-md-7">
+                <div class="col-7">
                     <p class="text-start">
                         {{this.sn}}. {{this.question}}
                     </p>
                 </div>
-                <div class="col-md-5">
-                    <ul class="nav">
+                <div class="col-5">
+                    <ul class="nav text-start">
                         <li class="mx-auto list-item">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="option"
-                                value='{ {{this.sn}}: "StronglyAgree"}'>
+                                value='StronglyAgree'>
                         </li>
                         <li class="mx-auto list-item">
-                            <input class="mx-auto form-check-input" type="checkbox" id="inlineCheckbox2" name="option"
-                                value='{ {{this.sn}}: "agree"}'>
+                            <input class=" form-check-input" type="checkbox" id="inlineCheckbox2" name="option"
+                                value='agree'>
                         </li>
-                        <li class="mx-4 list-item">
-                            <input class="mx-auto form-check-input" type="checkbox" id="inlineCheckbox3" name="option"
-                                value='{ {{this.sn}}: "neutral"}'>
+                        <li class="mx-auto list-item">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="option"
+                                value='neutral'>
                         </li>
                         <li class="mx-auto list-item">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="option"
-                                value='{ {{this.sn}}: "disagree"}'>
+                                value='disagree'>
                         </li>
                         <li class="mx-auto list-item">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="option"
-                                value='{ {{this.sn}} : "StronglyDisagree"}'>
+                                value='StronglyDisagree'>
                         </li>
                     </ul>
                 </div>

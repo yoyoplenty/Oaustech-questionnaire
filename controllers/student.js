@@ -20,6 +20,7 @@ exports.signup = async (req, res) => {
 		surname,
 		program,
 		email,
+		sex,
 		level,
 		matricNo,
 		password,
@@ -28,7 +29,7 @@ exports.signup = async (req, res) => {
 
 	let errors = [];
 	//check fields
-	if (!firstname || !surname || !email || !password || !password2) {
+	if (!firstname || !sex || !surname || !email || !password || !password2) {
 		errors.push({ msg: "please fill in all fields" });
 	}
 	//password match
@@ -47,6 +48,7 @@ exports.signup = async (req, res) => {
 			surname,
 			program,
 			level,
+			sex,
 			matricNo,
 			email,
 			password,
@@ -66,6 +68,7 @@ exports.signup = async (req, res) => {
 					surname,
 					program,
 					level,
+					sex,
 					matricNo,
 					email,
 					password,
@@ -79,6 +82,7 @@ exports.signup = async (req, res) => {
 					surname,
 					matricNo,
 					program,
+					sex,
 					level,
 					email,
 					password,
@@ -133,6 +137,12 @@ exports.signin = async (req, res) => {
 	console.log(req.session.user)
 	res.render("studentdashboard", { student: student });
 };
+
+exports.getdashboard = async (req, res) => {
+	let student = req.session.user
+	res.render("studentdashboard", { student: student });
+};
+
 
 exports.firstsemester = async (req, res) => {
 	try {
@@ -341,7 +351,8 @@ exports.getEachCourseQuestion = async (req, res) => {
 
 		if (courses) {
 			return res.render('question', {
-				question: question
+				question: question,
+				course: courses.course
 			})
 		}
 	} catch (error) { }

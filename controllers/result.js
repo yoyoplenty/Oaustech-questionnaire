@@ -11,18 +11,37 @@ exports.createresult = async (req, res) => {
         //get the course the student posted
         let course = req.session.course
 
-        console.log(req.body)
-        // i will still implement it that once a student with that matric no and same with course is found he wont be able to create the course, since he has submitted as well
+        //get the question to ensure proper selection of the response 
+        let question = await Question.find({})
+        let questionLength = question.length
+
+        //this is to ensure a value is selected
+        let thearray = Object.values(req.body)
+
+        if (thearray.length < 1) {
+            req.flash("error", `Please ensure to select an option`)
+            return res.redirect(`/student/question/${course.course}`)
+        }
+
+        //ensure user did not exceed the number of question given a response
+        let arrays = Object.values(req.body.option)
+
+        if (questionLength != arrays.length || questionLength < arrays.length) {
+            req.flash("error", `Please ensure to select your best response, for each questions and respond to all questions`)
+            return res.redirect(`/student/question/${course.course}`)
+        }
+
+        //this is to ensure a student dont give a response twice
         let courseClicked = await Result.findOne({
             $and: [{ matricNo: student.matricNo }, { course: course.course }],
         });
 
+
         if (courseClicked) {
-            return res.render('studentdashboard', {
-                error: `Cannot submit course ${course.course}, You have given a response already`,
-                student
-            })
+            req.flash("error", `Cannot submit course ${course.course}, You have given a response already`)
+            return res.redirect(`/student/question/${course.course}`)
         }
+
 
         const result = new Result({
             course: course.course,
@@ -30,19 +49,18 @@ exports.createresult = async (req, res) => {
             program: student.program,
             option: req.body.option
         });
-        //this is to ensure the value selected does not exceed no of question
-        let objectLength = Object.keys(req.body.option).length
-        console.log(objectLength)
+
         //save result to database
         result.save()
 
         if (!result) {
-            return res.send('data did not save')
+            req.flash("error", `Data did not save`)
+            return res.redirect('/student/dashboard')
         }
 
         res.render('studentdashboard', {
             success: "Answer submitted succesfully, please move to the next course",
-            student
+            student,
         })
     } catch (error) { }
 
@@ -101,14 +119,23 @@ exports.geteachresult = async (req, res) => {
         let result = await Result.find({})
         //get result that matches the course clicked
         let results = await Result.find({ course: courses.course })
+        let resultNo = await Result.find({ course: courses.course }).countDocuments();
+        let theresult = results.slice(0)
+
 
         if (results.length < 1) {
             req.flash("success", `No result yet for course ${req.params.course} `)
             return res.redirect('/result/')
         }
 
-        let theresult = results.slice(0)
-        console.log(theresult)
+        console.log(results)
+
+
+
+
+
+        let total = eachresult.length
+
 
         //just to display question as well as result
         let question = await Question.find({})
