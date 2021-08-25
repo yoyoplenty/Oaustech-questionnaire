@@ -19,6 +19,12 @@ const questionSchema = new mongoose.Schema(
 			type: String,
 			require: false,
 		},
+		courseCode: {
+			type: String,
+			require: true,
+		},
+		answers: [],
+		answered: [],
 	},
 	{ timestamps: { createdAt: "createdAt" } }
 );

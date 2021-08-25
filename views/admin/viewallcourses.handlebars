@@ -12,12 +12,10 @@
     <div class="question-row row">
 
         <h4 class="text-secondary text-center my-5"><b>Courses</b></h4>
-        {{#each semesterCourses}}
+        {{#each semester}}
         <div class="col-sm-2 mb-2 text-center text-white">
-            <button class="my-btn-mobile btn-danger"><a href="/result/{{this.courseName}}{{this.courseCode}}"
-                    style="text-decoration: none;" class="text-white"><b>{{this.courseName}}
-                        {{this.courseCode}}</b></a></button>
-
+            <button class="my-btn-mobile btn-danger"><b>{{this.courseName}}
+                        {{this.courseCode}}</b></button>
         </div>
         {{/each}}
 

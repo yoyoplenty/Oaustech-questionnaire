@@ -5,7 +5,7 @@ exports.createCourseForm = async (req, res) => {
 };
 exports.createCourse = async (req, res) => {
 	// res.render("addquestion");
-	let { level, courseName, courseCode } = req.body
+	let { level, courseName, courseCode, program } = req.body;
 
 	if (!courseName || !level || !courseCode) {
 		return res.render("admin/addcourses", {
@@ -14,9 +14,12 @@ exports.createCourse = async (req, res) => {
 	}
 
 	let course = await Course.findOne({
-		$and: [{ courseCode: courseCode }, { level: level }, { courseName: courseName }],
+		$and: [
+			{ courseCode: courseCode },
+			{ level: level },
+			{ courseName: courseName },
+		],
 	});
-
 
 	if (course) {
 		return res.render("admin/addcourses", {
@@ -27,10 +30,13 @@ exports.createCourse = async (req, res) => {
 	let newcourse = new Course({
 		courseName,
 		courseCode,
-		level
+		level,
+		program,
 	});
-	console.log(newcourse)
-	newcourse.save()
+
+	console.log(newcourse);
+	newcourse
+		.save()
 		.then((course) => {
 			if (!course) {
 				return res.render("admin/addcourses", {
@@ -44,8 +50,7 @@ exports.createCourse = async (req, res) => {
 		})
 		.catch((err) => {
 			console.log(err);
-		})
-
+		});
 };
 
 exports.delete = async (req, res) => {
@@ -53,5 +58,38 @@ exports.delete = async (req, res) => {
 		await Course.findOneAndDelete({ _id: req.params.id }).exec();
 
 		res.send("course deleted");
-	} catch (error) { }
+	} catch (error) {}
+};
+
+exports.getcourseForm = async (req, res) => {
+	try {
+		console.log("djnjn");
+
+		res.render("admin/selectdetailsform");
+	} catch (error) {}
+};
+
+exports.getCourse = async (req, res) => {
+	try {
+		console.log(req.query);
+
+		const courses = await Course.find({
+			$and: [{ program: req.query.program }, { level: req.query.level }],
+		});
+
+		console.log(courses);
+		let semester;
+		if (req.query.semester == "1") {
+			semester = courses.filter(function (element) {
+				return element.courseCode.charAt("2") % 2 !== 1;
+			});
+		} else {
+			semester = courses.filter(function (element) {
+				return element.courseCode.charAt("2") % 2 !== 0;
+			});
+		}
+		console.log(semester);
+
+		res.render("admin/viewallcourses", { semester });
+	} catch (error) {}
 };

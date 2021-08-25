@@ -1,58 +1,72 @@
-*{
-    padding: 0;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+* {
+	padding: 0;
+	margin: 0;
+	font-family: "Roboto", sans-serif;
 }
-.navbar-brand{
-    transform: translateX(-50%);
-    left: 50%;
-    position: absolute;
+.navbar-brand {
+	transform: translateX(-50%);
+	left: 50%;
+	position: absolute;
 }
-#banner-desktop{
-    background-color: white;
+#banner-desktop {
+	background-color: white;
 }
-#banner-mobile{
-    background-color: white;
-    font-size: 15px;
+#banner-mobile {
+	background-color: white;
+	font-size: 15px;
 }
 .question-row {
-    padding-top: 5vh !important;
+	padding-top: 5vh !important;
 }
-.row1,.row{
-    padding-top: 30vh;
-}
-
-.my-btn{
-    height: 70px;
-    width: 200px;    
-    color: white;
-    border-radius: 20px;
-    border: none;
-    margin: 0 0 10px 0;
-}
-.my-btn >a {
-    text-decoration: none;
-    color: white;
-}
-.my-btn-mobile{
-    height: 50px;
-    width: 100px;    
-    color: white;
-    border-radius: 10px;
-    border: none;
-    margin: 0 0 10px 0;
-}
-.my-btn-mobile >a {
-    text-decoration: none;
-    color: white;
+.row1,
+.row {
+	padding-top: 30vh;
 }
 
+.my-btn {
+	height: 70px;
+	width: 200px;
+	color: white;
+	border-radius: 20px;
+	border: none;
+	margin: 0 0 10px 0;
+}
+.my-btn > a {
+	text-decoration: none;
+	color: white;
+}
+.my-btn-mobile {
+	height: 50px;
+	width: 100px;
+	color: white;
+	border-radius: 10px;
+	border: none;
+	margin: 0 0 10px 0;
+}
+.my-btn-mobile > a {
+	text-decoration: none;
+	color: white;
+}
 
-.my-btn-mobile2{
-    height: 30px;
-    width: 80px;    
-    color: white;
-    border-radius: 10px;
-    border: none;
-    margin: 0 0 10px 0;
+.my-btn-mobile2 {
+	height: 30px;
+	width: 80px;
+	color: white;
+	border-radius: 10px;
+	border: none;
+	margin: 0 0 10px 0;
+}
+table,
+th,
+td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+td:nth-child(1) {
+	width: 500px;
+	background: #ddd;
+}
+
+.table-font {
+	font-size: 12px;
 }

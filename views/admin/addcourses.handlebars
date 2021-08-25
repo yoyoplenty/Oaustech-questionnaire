@@ -12,6 +12,12 @@
 
         <form method="POST" action="/course/" class="mx-4">
             <h3><b>Select level</b></h3>
+            <select class="form-control mb-3 text-center" name="program" id="" required>
+                    <option value="" selected>---Select program---</option>
+                    <option value="mathematics">Mathematics</option>
+                    <option value="statistics">Statistics</option>
+                    <option value="computer science">Computer science</option>
+            </select>
             <select class="form-select mb-3" name="level" aria-label="Default select example">
                 <option selected>Level</option>
                 <option value="100">100</option>

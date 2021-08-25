@@ -1,0 +1,40 @@
+<section id="banner-desktop" class="" style="padding-top: 2%;">
+    <div class="container" style="height: 80vh;">
+        <div class="col-md-12">
+            <h5 class="text-center"> {{misc.semester}} Semester for {{misc.level}} level </h5>
+        </div>
+
+        {{>messages}}
+
+        <div class="row text-center" style="padding-top: 5vh;">
+
+            {{!-- <div class="col-6 text-center"> --}}
+                {{!-- {{#each semesterCourses}}
+                <div class="my-2">
+                    <h5 class="text-secondary"></h5>
+                    <button class="my-btn-mobile btn-danger"><a style="text-decoration: none;"
+                            class="text-light"><b>{{this.courseName}} {{this.courseCode}}</b></a></button>
+                </div>
+                {{/each}} --}}
+
+            {{!-- </div> --}}
+
+
+            {{!-- <div class="col-6 text-center"> --}}
+                {{#each semesterCourses}}
+                <div class="my-2">
+                    <button class="my-btn-mobile btn-danger"><a
+                            href="/result/{{this.courseName}}{{this.courseCode}}"
+                            style="text-decoration: none;" class="text-light">{{this.courseName}} {{this.courseCode}}</a></button>
+                </div>
+                {{/each}}
+            {{!-- </div> --}}
+
+
+
+        </div>
+
+
+    </div>
+
+    </div>

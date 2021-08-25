@@ -17,26 +17,31 @@
         </div>
 
         <div class="row question-row" style="margin-top: 0vh !important;">
-            <div class="col-md-7"></div>
-            <div class="col-md-5">
-                <ul class="nav text-center">
-                    <li class="list-item mx-auto">
-                        Strongly Agree
-                    </li>
-                    <li class="list-item mx-4">
-                        Agree
-                    </li>
-                    <li class="list-item mx-3">
-                        Neutral
-                    </li>
-                    <li class="list-item mx-3">
-                        Disagree
-                    </li>
-                    <li class="list-item mx-1">
-                        Strongly Disagree
-                    </li>
-
-                </ul>
+            <div class="d-flex align-items-center justify-content-center">
+               <table class="w-75"> 
+                   <tr>
+                       <th class="px-2 text-center">Questions</th>
+                       <th colspan="5" class="text-center">Answers</th>
+                   </tr>
+                   <tr>
+                       <td></td>
+                       <th class="table-font text-center">strongly agree</th>
+                       <th class="table-font text-center">agree</th>
+                       <th class="table-font text-center" >neutral</th>
+                       <th class="table-font text-center">disagree</th>
+                       <th class="table-font text-center">strongly disagree</th>
+                   </tr>
+                   <tr>
+                   {{#each questions}}
+                       <td class="table-font px-4">{{this.question}}</td>
+                       {{#each answers}}
+                       <td class="table-font text-center">{{this}}</td>
+                       {{!--  --}}
+                       {{/each}}
+                   </tr>
+                   {{/each}}
+                   
+               </table>
             </div>
         </div>
 
