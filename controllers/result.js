@@ -127,14 +127,137 @@ exports.geteachresult = async (req, res) => {
             req.flash("success", `No result yet for course ${req.params.course} `)
             return res.redirect('/result/')
         }
+        /*   //just to test the solution from stack overflow
+           const obj = [{
+               _id: "61180e1 c02ceb02dcc5d3173",
+               course: 'GST201',
+               matricNo: 190409005,
+               program: 'stat',
+               option: [
+                   'StronglyAgree',
+                   'agree',
+                   'agree',
+                   'agree',
+                   'StronglyAgree',
+                   'StronglyAgree'
+               ],
+               createdAt: "2021 - 08 - 14 T18: 40: 28.492 Z",
+               updatedAt: "2021 - 08 - 14 T18: 40: 28.492 Z",
+               __v: 0
+           },
+           {
+               _id: "61180e4 a02ceb02dcc5d317c",
+               course: 'GST201',
+               matricNo: 180409004,
+               program: 'csc',
+               option: [
+                   'StronglyAgree',
+                   'agree',
+                   'StronglyAgree',
+                   'agree',
+                   'StronglyAgree',
+                   'agree'
+               ],
+               createdAt: "2021 - 08 - 14 T18: 41: 14.609 Z",
+               updatedAt: "2021 - 08 - 14 T18: 41: 14.609 Z",
+               __v: 0
+           },
+           ];
+   
+   
+           console.log(
+               obj.map(e => e.option).map(e => {
+                   console.log(e)
+                   const l = {};
+                   e.forEach(x => l[x] != null ? l[x]++ : l[x] = 1);
+                   return Object.entries(l).map(e => `${e[0]}(${e[1]})`)
+               })
+           ); */
 
-        console.log(results)
+        //test stack overflow solution
 
 
 
+        const obj = [{
+            _id: "61180e1 c02ceb02dcc5d3173",
+            course: 'GST201',
+            matricNo: 190409005,
+            program: 'stat',
+            option: [
+                'StronglyAgree',
+                'agree',
+                'agree',
+                'agree',
+                'StronglyAgree',
+                'StronglyAgree'
+            ],
+            createdAt: "2021 - 08 - 14 T18: 40: 28.492 Z",
+            updatedAt: "2021 - 08 - 14 T18: 40: 28.492 Z",
+            __v: 0
+        },
+        {
+            _id: "61180e1 c02ceb02dcc5d3173",
+            course: 'GST201',
+            matricNo: 190409005,
+            program: 'stat',
+            option: [
+                'agree',
+                'agree',
+                'disAgree',
+                'agree',
+                'StronglyAgree',
+                'StronglyAgree'
+            ],
+            createdAt: "2021 - 08 - 14 T18: 40: 28.492 Z",
+            updatedAt: "2021 - 08 - 14 T18: 40: 28.492 Z",
+            __v: 0
+        },
+        {
+            _id: "61180e4 a02ceb02dcc5d317c",
+            course: 'GST201',
+            matricNo: 180409004,
+            program: 'csc',
+            option: [
+                'StronglyAgree',
+                'agree',
+                'StronglyAgree',
+                'agree',
+                'StronglyAgree',
+                'agree'
+            ],
+            createdAt: "2021 - 08 - 14 T18: 41: 14.609 Z",
+            updatedAt: "2021 - 08 - 14 T18: 41: 14.609 Z",
+            __v: 0
+        },
+        {
+            _id: "61180e4 a02ceb02dcc5d317c",
+            course: 'GST201',
+            matricNo: 180409004,
+            program: 'csc',
+            option: [
+                'agree',
+                'agree',
+                'StronglyAgree',
+                'agree',
+                'StronglyAgree',
+                'disAgree'
+            ],
+            createdAt: "2021 - 08 - 14 T18: 41: 14.609 Z",
+            updatedAt: "2021 - 08 - 14 T18: 41: 14.609 Z",
+            __v: 0
+        }
+        ];
+
+        const Response = [];
+        const tmp = obj.map(e => e.option);
+        tmp.pop().forEach((e, i, _, res = {}) => (
+            [e, ...tmp.map(f => f[i])].forEach(g => res[g] ? res[g] += 1 : res[g] = 1),
+            Response.push(res))
+        )
 
 
-        let total = eachresult.length
+        console.log(Response)
+
 
 
         //just to display question as well as result
