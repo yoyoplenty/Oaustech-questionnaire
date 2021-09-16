@@ -1,0 +1,31 @@
+<div class="container my-3 text-center">
+    {{>messages}}
+    <form action="/course/{{course.id}}?_method=PUT" class="mt-3" method="POST">
+        <div class="mb-3">
+            <label for="exampleInputMatricNo" class="form-label"><b>Course name</b></label>
+            <input type="text" name="courseName" class="form-control" id="exampleInputMatricNo"
+                value="{{course.courseName}}" required>
+
+        </div>
+
+
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"><b>Course code</b></label>
+            <input type="text" name="courseCode" class="form-control" id="exampleInputPassword1"
+                value="{{course.courseCode}}" required>
+        </div>
+        <label for="exampleInputPassword1" class="form-label"><b>level</b></label>
+        <select class="form-select mb-3" name="level" aria-label="Default select example" required>
+            <option selected>Level</option>
+            <option value=100>100</option>
+            <option value=200>200</option>
+            <option value=300>300</option>
+            <option value=400>400</option>
+            <option value=500>500</option>
+        </select>
+
+        <button class="btn btn-danger"><a class="text-white" style="text-decoration: none;"
+                href="/courses/all">Cancel</a></button>
+        <button type="submit" class="btn btn-danger">Edit</button>
+
+    </form>

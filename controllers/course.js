@@ -7,7 +7,7 @@ exports.createCourse = async (req, res) => {
 	// res.render("addquestion");
 	let { level, courseName, courseCode } = req.body
 
-	if (!courseName || !level || !courseCode) {
+	if (!courseName || !level || !courseCode || isNaN(level)) {
 		return res.render("admin/addcourses", {
 			error: "incomplete details",
 		});
@@ -47,11 +47,72 @@ exports.createCourse = async (req, res) => {
 		})
 
 };
-
-exports.delete = async (req, res) => {
+exports.getAllCourse = async (req, res) => {
 	try {
-		await Course.findOneAndDelete({ _id: req.params.id }).exec();
+		let allCourse = await Course.find({})
+		allCourse.sort((a, b) => a.courseCode - b.courseCode)
+		res.render('admin/allcourses', {
+			courses: allCourse
+		})
+	} catch (error) { }
+};
+exports.getEditCourse = async (req, res) => {
+	try {
+		let ID = req.params.id
+		console.log(ID)
+		let exactCourse = await Course.findById(ID)
+		//	console.log(exactCourse)
+		res.render('admin/editcourse', {
+			course: exactCourse
+		})
+	} catch (error) { }
+}
+exports.editCourse = async (req, res) => {
+	try {
+		let { level, courseName, courseCode } = req.body;
 
-		res.send("course deleted");
+		let ID = req.params.id
+
+		//setting the specific course to a variable 
+		req.course = await Course.findById(ID);
+		let courses = req.course;
+
+
+		//check if it was not updated
+		if (!courseName || !level || !courseCode || isNaN(level)) {
+			req.flash("error", "Incomplete details");
+			return res.redirect(`/course/edit/${ID}`)
+		};
+
+		if (courseName === courses.courseName &&
+			courseCode == courses.courseCode || level === courses.level) {
+			req.flash("error", "Nothing was updated");
+			return res.redirect(`/course/edit/${ID}`)
+		}
+
+
+
+		//set the previous course to the new one
+		courses.courseName = courseName
+		courses.courseCode = courseCode
+		courses.level = level
+
+		//get it saved
+		newCourse = await courses.save()
+		if (newCourse) {
+			req.flash(`success`, `Course was updated successfully`)
+			res.redirect('/course/all')
+		} else {
+			req.flash("error", "Please Nothing was updated");
+			return res.redirect(`/course/edit/${ID}`)
+		}
+	} catch (error) { }
+};
+exports.deleteCourse = async (req, res) => {
+	try {
+		let ID = req.params.id
+		await Course.findOneAndDelete(ID).exec();
+		req.flash(`success`, `Course was deleted successfully`)
+		res.redirect('/course/all')
 	} catch (error) { }
 };

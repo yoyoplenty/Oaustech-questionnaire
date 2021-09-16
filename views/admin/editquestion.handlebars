@@ -1,0 +1,21 @@
+<div class="container my-3 text-center">
+    {{>messages}}
+    <form action="/question/{{question.id}}?_method=PUT" class="mt-3" method="POST">
+        <div class="mb-3">
+            <label for="exampleInputMatricNo" class="form-label">Sn</label>
+            <input type="text" name="sn" class="form-control" id="exampleInputMatricNo" value="{{question.sn}}">
+
+        </div>
+
+
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Question</label>
+            <input type="text" name="question" class="form-control" id="exampleInputPassword1"
+                value="{{question.question}}">
+        </div>
+
+        <button class="btn btn-danger"><a class="text-white" style="text-decoration: none;"
+                href="/question/all">Cancel</a></button>
+        <button type="submit" class="btn btn-danger">Edit</button>
+
+    </form>

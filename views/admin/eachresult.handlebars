@@ -4,6 +4,13 @@
         <h4 class="text-secondary"><b>Response to {{course}} Questions</b></h4>
     </div>
 
+    <div class="text-center my-3">
+        <span>
+            <p class="text-muted"><b>Total Numbers of Contributors</b></p>
+            <button class="my-btn-mobile d-inline btn-danger">{{resultNo}}</button>
+        </span>
+    </div>
+
     <div class="container">
         <div class="text-start">
             <p>
@@ -17,8 +24,8 @@
         </div>
 
         <div class="row question-row" style="margin-top: 0vh !important;">
-            <div class="col-md-7"></div>
-            <div class="col-md-5">
+            <div class="col-7"></div>
+            <div class="col-5">
                 <ul class="nav text-center">
                     <li class="list-item mx-auto">
                         Strongly Agree
@@ -41,35 +48,62 @@
         </div>
 
 
-        <div class="row question-row">
+        <div class="row question-row px-0 mx-0">
 
-            {{#each question}}
-            <div class="col-md-7">
-                <p class="text-start">
-                    {{this.sn}}. {{this.question}}
-                </p>
-            </div>
-            <div class="col-md-5">
-                <ul class="nav">
 
-                    <li class="mx-auto list-item">
-                        <p>5</p>
-                    </li>
-                    <li class="mx-auto list-item">
-                        <p>5</p>
-                    </li>
-                    <li class="mx-auto list-item">
-                        <p>5</p>
-                    </li>
-                    <li class="mx-auto list-item">
-                        <p>5</p>
-                    </li>
-                    <li class="mx-auto list-item">
-                        <p>5</p>
-                    </li>
-                </ul>
+            <div class="col-7 mx-0">
+                {{#each question}}
+                <div class="col-12 py-2 mx-0">
+                    <p class="text-start">
+                        {{this.sn}}. {{this.question}}
+                    </p>
+                </div>
+                {{/each}}
             </div>
-            {{/each}}
+
+            <div class="col-5 mx-0">
+                {{#each Response}}
+                <div class="col-12 py-2">
+                    <ul class="nav text-center">
+                        <li class="mx-auto list-item ">
+                            {{#if this.stronglyAgree }}
+                            <p>{{this.stronglyAgree}}</p>
+                            {{else}}
+                            <p>0</p>
+                            {{/if}}
+                        </li>
+                        <li class="mx-auto list-item">
+                            {{#if this.agree }}
+                            <p>{{this.agree}}</p>
+                            {{else}}
+                            <p>0</p>
+                            {{/if}}
+                        </li>
+                        <li class="mx-auto list-item">
+                            {{#if this.neutral }}
+                            <p>{{this.neutral}}</p>
+                            {{else}}
+                            <p>0</p>
+                            {{/if}}
+                        </li>
+                        <li class="mx-auto list-item">
+                            {{#if this.disagree }}
+                            <p>{{this.disagree}}</p>
+                            {{else}}
+                            <p>0</p>
+                            {{/if}}
+                        </li>
+                        <li class="mx-auto list-item">
+                            {{#if this.stronglyDisagree }}
+                            <p>{{this.stronglyDisagree}}</p>
+                            {{else}}
+                            <p>0</p>
+                            {{/if}}
+                        </li>
+                    </ul>
+                </div>
+                {{/each}}
+            </div>
 
 
 
@@ -77,8 +111,8 @@
 
         </div>
 
-        <div class="col-md-12 text-center my-5">
-            <button class="my-btn-mobile btn-danger" type="submit"><b>PRINT</b></button>
+        <div class="col-12 text-center my-5">
+            <button class="my-btn-mobile btn-danger" onclick="display()" type="submit"><b>PRINT</b></button>
         </div>
         </form>
 

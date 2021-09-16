@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 var exphbs = require("express-handlebars");
 const Handlebars = require("handlebars");
-
+var methodOverride = require('method-override')
 const mongoose = require("mongoose");
 const flash = require("connect-flash");
 const path = require("path");
@@ -49,6 +49,8 @@ app.set("views", path.join(__dirname, "/views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+//methov override
+app.use(methodOverride('_method'));
 
 //initialize session
 app.use(
@@ -95,6 +97,7 @@ app.use("/course", course);
 app.use("/student", student);
 app.use("/question", question);
 app.use("/result", result);
+
 
 //ser PORT
 let PORT = process.env.PORT || 3030;

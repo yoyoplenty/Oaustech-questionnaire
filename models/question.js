@@ -3,14 +3,6 @@ const slug = require("mongoose-slug-generator");
 
 const questionSchema = new mongoose.Schema(
 	{
-		// level: {
-		// 	type: String,
-		// 	require: false,
-		// },
-		// course: {
-		// 	type: String,
-		// 	require: false,
-		// },
 		sn: {
 			type: Number,
 			require: true,

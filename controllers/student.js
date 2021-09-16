@@ -2,7 +2,8 @@ const Student = require("../models/Students"),
 	utility = require("../services/utilities"),
 	bcrypt = require("bcryptjs"),
 	Courses = require("../models/courses"),
-	Question = require("../models/question")
+	Question = require("../models/question"),
+	Result = require("../models/Results")
 
 exports.getRegistrationForm = async (req, res) => {
 	res.render("register");
@@ -133,14 +134,27 @@ exports.signin = async (req, res) => {
 			message: "please login with a valid credentials",
 		});
 	}
+	//user profile and data
 	req.session.user = student;
 	console.log(req.session.user)
-	res.render("studentdashboard", { student: student });
+	let totalNo = await Courses.find({ level: student.level }).countDocuments()
+	let ansNo = await Result.find({ matricNo: student.matricNo }).countDocuments()
+	let leftNo = totalNo - ansNo
+	//let eachCourse = await Result.find({ matricNo: student.matricNo })
+	console.log(totalNo)
+	//console.log(eachCourse)
+	res.render("studentdashboard", { student: student, totalNo, ansNo, leftNo });
 };
 
 exports.getdashboard = async (req, res) => {
 	let student = req.session.user
-	res.render("studentdashboard", { student: student });
+	let totalNo = await Courses.find({ level: student.level }).countDocuments()
+	let ansNo = await Result.find({ matricNo: student.matricNo }).countDocuments()
+	let leftNo = totalNo - ansNo
+	//let eachCourse = await Result.find({ matricNo: student.matricNo })
+	console.log(totalNo)
+	//console.log(eachCourse)
+	res.render("studentdashboard", { student: student, totalNo, ansNo, leftNo });
 };
 
 
@@ -348,6 +362,7 @@ exports.getEachCourseQuestion = async (req, res) => {
 
 		//get Questions from database
 		let question = await Question.find({})
+		question.sort((a, b) => a.sn - b.sn)
 
 		if (courses) {
 			return res.render('question', {

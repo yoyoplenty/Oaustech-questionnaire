@@ -1,0 +1,27 @@
+<div class="container my-5">
+    {{>messages}}
+    <div class="text-center my-3">
+        <span>
+            <p class="text-muted"><b>Total Numbers of Results</b></p>
+            <button class="my-btn-mobile d-inline btn-danger"><b>{{resultsNo}}</b></button>
+        </span>
+    </div>
+    <div class="question-row row">
+        {{#each result}}
+        <div class="col-sm-2 text-center px-3 py-1 text-secondary my-2 border border-5 rounded">
+            <h5 class="py-2"><span><button class="btn btn-lg btn-secondary"><a href="/result/{{this}}"
+                            class="text-white" style="text-decoration: none;"><b>{{this}}</b></a></button>
+
+                    <form action="/result/delete/{{this}}?_method=DELETE" method="POST" class="mt-2">
+                        <button class="btn btn-sm btn-danger"><a href="/result/delete/{{this}}"
+                                onclick="return confirm('Are you sure you want to delete this result?');"
+                                class="text-white" style="text-decoration: none;"><b><i class="fas fa-trash-alt"
+                                        style="font-size: 20px;"></i></b></a></button>
+
+                    </form>
+
+                </span> </h5>
+        </div>
+        {{/each}}
+    </div>
+</div>
