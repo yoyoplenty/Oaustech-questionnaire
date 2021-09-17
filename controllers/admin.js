@@ -110,9 +110,12 @@ exports.register = async (req, res) => {
 						//save the user input for registration
 						newadmin.save()
 							.then(admin => {
+								req.flash(
+									"success",
+									"you are now registered and can login in"
+								);
 								res.render('admin/login', {
 									title: 'Admin Page',
-									message: 'you are now registered and can login in',
 									admin: admin,
 									password
 								})
@@ -131,3 +134,4 @@ exports.getLogin = async (req, res) => {
 		title: 'Admin Page',
 	})
 };
+
