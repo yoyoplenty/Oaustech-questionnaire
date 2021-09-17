@@ -2,19 +2,19 @@ const mongoose = require("mongoose");
 const slug = require("mongoose-slug-generator");
 
 const adminSchema = new mongoose.Schema({
-	name: {
+	firstname: {
+		type: String,
+		require: true,
+	},
+	lastname: {
 		type: String,
 		require: true,
 	},
 	worklevel: {
-		type: String,
+		type: Number,
 		required: true,
 	},
 	email: {
-		type: String,
-		required: true,
-	},
-	program: {
 		type: String,
 		required: true,
 	},

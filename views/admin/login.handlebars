@@ -1,0 +1,42 @@
+<div class="container my-auto">
+    <div class="text-center">
+        <img src="/uploads/admin-logo.jpg" height="200px" width="200px">
+    </div>
+
+    <div class="mb-3 py-3 text-center">
+        <h4 class="text-muted"><b>Welcome Admin please login</b></h4>
+    </div>
+    <div class="container mt-4">
+        <div class="row2">
+            <div class="col-md-12 mt-3">
+                {{>messages}}
+                {{#if message}}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {{/if}}
+                <form action="/admin/login" method="POST">
+
+                    <div class="mb-3">
+                        <label for="exampleInputMatricNo" class="form-label text-secondary"><b>Email Address</b></label>
+                        <input type="text" name="email" class="form-control" id="exampleInputMatricNo" required>
+
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label text-secondary"><b>Password</b></label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+
+
+                    <div class="col-md-12 text-center" style="margin-top: 5%;">
+                        <button type="submit" class="btn-danger btn-lg d-grid gap-2 mx-auto">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

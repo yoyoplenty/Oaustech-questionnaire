@@ -1,24 +1,25 @@
 //Bring in the model
-let Students = require('../models/Students');
+let Admin = require('../models/admin');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs')
 
 module.exports = function (passport) {
     passport.use(
-        new LocalStrategy({ usernameField: 'matricNo' }, (matricNo, password, done) => {
-            //match student
-            Students.findOne({ matricNo: matricNo })
-                .then(student => {
-                    if (!student) {
+        new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+            //match Admin
+            Admin.findOne({ email: email })
+                .then(admin => {
+                    if (!admin) {
                         return done(null, false,
-                             { message: "That matric number is not registered"
-                             });
+                            {
+                                message: "This email is not registered"
+                            });
                     }
                     //match password
-                    bcrypt.compare(password, student.password, (err, isMatch) => {
+                    bcrypt.compare(password, admin.password, (err, isMatch) => {
                         if (err) throw err;
                         if (isMatch) {
-                            return done(null, student);
+                            return done(null, admin);
                         } else {
                             return done(null, false, { message: 'Password incorrect' })
                         }
@@ -29,13 +30,13 @@ module.exports = function (passport) {
                 })
         })
     );
-    passport.serializeUser((student, done) => {
-        done(null, student.id);
+    passport.serializeUser((admin, done) => {
+        done(null, admin.id);
     });
 
     passport.deserializeUser((id, done) => {
-        Students.findById(id, function (err, user) {
-            done(err, user);
+        Admin.findById(id, function (err, admin) {
+            done(err, admin);
         });
     });
 }

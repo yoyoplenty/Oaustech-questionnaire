@@ -1,53 +1,209 @@
-<section id="banner-desktop" class="" style="padding-top: 2%;">
-    <div class="container" style="height: 80vh;">
-        <div class="row" style="height: 40vh; padding-top: 10vh;">
-            <div class="col-md-6 text-center">
-                <img src="./IMG/User.svg" class="img-thumbnail" alt="Admin Image" style="width: 120px; height: 120px;">
+<div class="contanier fluid my-0">
+    <div class="question1-row row">
+
+        <div class="col-md-2 bg-dark">
+            <div class="text-white bg-dark" style="width: 280px; height: 100vh;">
+                <ul class="nav nav-pills flex-column mb-auto">
+
+
+                    <li class="nav-item mx-0">
+                        <div class="row" style="padding-top: 3vh;">
+                            <div class="col-md-6 mt-1 text-end">
+                                <img src="/uploads/users.png" class="img-thumbnail" alt="User Image"
+                                    style="width: 130px; height: 150px; border-radius: 50%">
+                            </div>
+                            <div class="col-md-6 mt-3 text-end">
+                                <div class="col-md-6 text-center">
+                                    <p class="mt-1"><b>Welcome</b></p>
+                                    <p class="h5"><b>{{admin.lastname}}</b></p>
+                                    <p class="h5"><span class="text-muted">Level</span><b> {{admin.worklevel}}</b></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                    <li class="row text-center" style="padding-top: 7vh;">
+                        <div class="col">
+                            <a><button style="background-color: green;" class="my-btn btn-lg"><a
+                                        href="/course/all"><b>Get
+                                            Courses</b></a></button>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="row text-center" style="padding-top: 2vh;">
+                        <div class="col">
+                            <a> <button style="background-color: blue;" class="my-btn btn-lg"><a
+                                        href="/question/all"><b>Get
+                                            Questions</b></a></button>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="row text-center" style="padding-top: 2vh;">
+                        <div class="col">
+                            <a> <button style="background-color:purple;" class="my-btn btn-lg"><a href="/course/"><b>Add
+                                            courses</b></a></button>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="row text-center" style="padding-top: 2vh;">
+                        <div class="col">
+                            <a><button style="background-color: brown;" class="my-btn btn-lg"><a
+                                        href="/question/"><b>Add
+                                            questions</b></a></button>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="row text-center" style="padding-top: 2vh;">
+                        <div class="col">
+                            <a><button style="background-color: burlywood;" class="my-btn btn-lg"><a
+                                        href="/result/"><b>Courses/Results</b></a></button>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="row text-center" style="padding-top: 2vh;">
+                        <div class="col">
+                            <a> <button class="my-btn btn-lg btn-danger"><a href="/result/all"><b>Delete
+                                            Results</b></a></button>
+                            </a>
+                        </div>
+                    </li>
+
+
+                </ul>
+
+
+                <div class="text-center mt-5">
+                    <a href="#" class="text-center" style="text-decoration: none;">
+                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>Sign Out</strong>
+                    </a>
+                </div>
 
             </div>
-
-            <div class="col-md-6 text-center">
-                <p class="h5">{{admin.name}}</p>
-                <p class="h5">{{student.worklevel}} Level</p>
-                <p class="h5">{{student.program}}</p>
-            </div>
-
         </div>
 
 
 
-        <div class="row question-row text-center">
-            <div class="col-sm-6">
-                <button class="my-btn btn-danger"><a href="/course/all"><b>Get all courses</b></a></button>
+
+        <div class="col-md-9 text-white">
+            <div class="text-center">
+                {{>Logo}}
             </div>
 
-            <div class="col-sm-6">
-                <button class="my-btn btn-danger"><a href="/question/all"><b>Get all questions</b></a></button>
+            <div class="question1-row mt-2 text-white row px-5">
+                <div class="col-md-6">
+                    <div class=" ml-3" style="background-color: green; border-radius: 10px">
+                        <div class="text-center">
+                            <h3 class="text-white p-3"><b>Mathematics</b></h3>
+                        </div>
+                        <div class="question1-row row">
+                            <div class="one question1-row row my-5">
+                                <div class="col-9 text-center">
+                                    <h1>Registered Student</h1>
+                                </div>
+                                <div class="col-3 text-start">
+                                    <h1>200</h1>
+                                </div>
+                            </div>
+
+                            <div class="second question1-row row my-5">
+                                <div class="col-9 text-center">
+                                    <h1>Participant</h1>
+                                </div>
+                                <div class="col-3 text-start">
+                                    <h1>150</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" style="background-color: blue; border-radius: 10px">
+                    <div class="text-center">
+                        <h3 class="text-white p-3"><b>Computer Science</b></h3>
+                    </div>
+                    <div class="question1-row row">
+                        <div class="one question1-row row my-5">
+                            <div class="col-9 text-center">
+                                <h1>Registered Student</h1>
+                            </div>
+                            <div class="col-3 text-start">
+                                <h1>200</h1>
+                            </div>
+                        </div>
+
+                        <div class="second question1-row row my-5">
+                            <div class="col-9 text-center">
+                                <h1>Participant</h1>
+                            </div>
+                            <div class="col-3 text-start">
+                                <h1>150</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-row row px-5">
+                <div class="col-md-6">
+                    <div class=" ml-3" style="background-color: purple; border-radius: 10px">
+                        <div class="text-center">
+                            <h3 class="text-white p-3"><b>Statistics</b></h3>
+                        </div>
+                        <div class="question1-row row">
+                            <div class="one question1-row row my-5">
+                                <div class="col-9 text-center">
+                                    <h1>Registered Student</h1>
+                                </div>
+                                <div class="col-3 text-start">
+                                    <h1>200</h1>
+                                </div>
+                            </div>
+
+                            <div class="second question1-row row my-5">
+                                <div class="col-9 text-center">
+                                    <h1>Participant</h1>
+                                </div>
+                                <div class="col-3 text-start">
+                                    <h1>150</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" style="background-color: brown; border-radius: 10px">
+                    <div class="text-center">
+                        <h3 class="text-white p-3"><b>Overall Students</b></h3>
+                    </div>
+                    <div class="question1-row row">
+                        <div class="one question1-row row my-5">
+                            <div class="col-9 text-center">
+                                <h1>Registered Student</h1>
+                            </div>
+                            <div class="col-3 text-start">
+                                <h1>200</h1>
+                            </div>
+                        </div>
+
+                        <div class="second question1-row row my-5">
+                            <div class="col-9 text-center">
+                                <h1>Participant</h1>
+                            </div>
+                            <div class="col-3 text-start">
+                                <h1>150</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-
-        <div class="row question-row text-center">
-            <div class="col-sm-6">
-                <button class="my-btn btn-danger"><a href="/course/"><b>Add courses</b></a></button>
-            </div>
-
-            <div class="col-sm-6">
-                <button class="my-btn btn-danger"><a href="/question/"><b>Add questions</b></a></button>
-            </div>
-        </div>
-
-
-
-        <div class="question-row row text-center my-4">
-            <div class="col-12">
-                <button class="my-btn btn-danger"><a href="/result/"><b>Results</b></a></button>
-            </div>
-            <div class="col-12">
-                <button class="my-btn btn-danger"><a href="/result/all"><b>All Results</b></a></button>
-            </div>
-        </div>
-
     </div>
-</section>
+</div>

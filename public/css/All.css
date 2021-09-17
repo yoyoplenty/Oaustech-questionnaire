@@ -21,6 +21,9 @@
 .question-row {
     padding-top: 5vh !important;
 }
+.question1-row {
+    padding-top: 0px !important;
+}
 .row1,.row{
     padding-top: 30vh;
 }
