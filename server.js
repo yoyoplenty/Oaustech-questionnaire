@@ -6,6 +6,7 @@ var methodOverride = require('method-override')
 const mongoose = require("mongoose");
 const flash = require("connect-flash");
 const path = require("path");
+const dotenv = require('dotenv')
 const morgan = require("morgan"),
 	passport = require("passport");
 const session = require("express-session"),
@@ -13,7 +14,8 @@ const session = require("express-session"),
 const {
 	allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
-
+//dotenv
+dotenv.config()
 // Declaring routes
 const index = require("./routes/index"),
 	admin = require("./routes/admin"),
@@ -23,7 +25,7 @@ const index = require("./routes/index"),
 	result = require("./routes/result")
 
 //set Database
-mongoose.connect(
+/* mongoose.connect(
 	"mongodb://localhost:27017/studentquestionniare",
 	{
 		useUnifiedTopology: true,
@@ -33,15 +35,15 @@ mongoose.connect(
 	() => {
 		console.log("Database connected");
 	}
-);
+); */
 //atlas mongodb
-/* mongoose.connect(process.env.DATABASE_ACCESS, {
+mongoose.connect(process.env.DATABASE_ACCESS, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
 	useCreateIndex: true,
 }, () => {
 	console.log('Database connected')
-}) */
+})
 
 morgan("dev");
 
