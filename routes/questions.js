@@ -2,9 +2,9 @@ const express = require("express"),
 	router = express.Router(),
 	question = require("../controllers/question");
 const passport = require('passport');
-const { ensureAuthenticated, forwardAuthenticated } = require('../configs/auth');
+const { ensureAuthenticated, forwardAuthenticated } = require('../configure/auth');
 //passport config
-require('../configs/passport')(passport)
+require('../configure/passport')(passport)
 
 router.get("/", ensureAuthenticated, question.getQuestion);
 router.get("/all", ensureAuthenticated, question.getAllQuestion);
