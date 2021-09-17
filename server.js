@@ -64,21 +64,29 @@ app.use(express.static("public"));
 //methov override
 app.use(methodOverride('_method'));
 
+
+
+/* store: MongoStore.create({
+	mongoUrl: "mongodb://localhost:27017/studentquestionniare",
+	//mongoUrl: process.env.DATABASE_ACCESS,
+	saveUninitialized: true,
+	resave: false,
+	ttl: 1 * 24 * 60 * 60,
+	touchAfter: 24 * 3600,
+	crypto: {
+		secret: "squirrel",
+	},
+}), */
+
 //initialize session
 app.use(
 	session({
 		secret: "questionear",
-		store: MongoStore.create({
-			mongoUrl: "mongodb://localhost:27017/studentquestionniare",
-			//mongoUrl: process.env.DATABASE_ACCESS,
-			saveUninitialized: true,
-			resave: false,
-			ttl: 1 * 24 * 60 * 60,
-			touchAfter: 24 * 3600,
-			crypto: {
-				secret: "squirrel",
-			},
-		}),
+		saveUninitialized: true,
+		resave: false,
+		ttl: 1 * 24 * 60 * 60,
+		touchAfter: 24 * 3600,
+
 	})
 );
 
