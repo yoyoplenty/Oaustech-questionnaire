@@ -3,9 +3,9 @@ const app = express();
 const router = express.Router();
 const admin = require("../controllers/admin");
 const passport = require('passport');
-const { ensureAuthenticated, forwardAuthenticated } = require('../configs/auth');
+const { ensureAuthenticated, forwardAuthenticated } = require('../configure/auth');
 //passport config
-require('../configs/passport')(passport)
+require('../configure/passport')(passport)
 
 /**
  * GET REQUEST

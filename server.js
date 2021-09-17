@@ -6,6 +6,7 @@ var methodOverride = require('method-override')
 const mongoose = require("mongoose");
 const flash = require("connect-flash");
 const path = require("path");
+const { ensureAuthenticated, forwardAuthenticated } = require('./configure/auth');
 const dotenv = require('dotenv')
 const morgan = require("morgan"),
 	passport = require("passport");
