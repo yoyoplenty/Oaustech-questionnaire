@@ -4,7 +4,6 @@ const express = require('express')
 const app = express();
 const bcrypt = require('bcryptjs')
 const passport = require('passport');
-const admin = require("../models/admin");
 const Student = require("../models/Students"),
 	Result = require("../models/Results")
 
@@ -12,25 +11,26 @@ exports.getHome = async (req, res) => {
 	res.render("admin/index");
 };
 exports.getAdminDashboard = async (req, res) => {
+	try {
+		let overAll = await Student.find({}).countDocuments()
+		let mathNo = await Student.find({ program: 'mathematics' }).countDocuments()
+		let cscNo = await Student.find({ program: 'csc' }).countDocuments()
+		let statNo = await Student.find({ program: 'stat' }).countDocuments()
+		const admin = req.session.admin
 
-	let overAll = await Student.find({}).countDocuments()
-	let mathNo = await Student.find({ program: 'mathematics' }).countDocuments()
-	let cscNo = await Student.find({ program: 'csc' }).countDocuments()
-	let statNo = await Student.find({ program: 'stat' }).countDocuments()
-	const admin = req.session.admin
-
-	//participant
-	console.log(overAll)
-	console.log(mathNo)
-	//console.log(admin)
-	res.render("admin/admin", {
-		layout: 'admin',
-		admin,
-		overAll,
-		cscNo,
-		statNo,
-		mathNo
-	});
+		//participant
+		console.log(overAll)
+		console.log(mathNo)
+		//console.log(admin)
+		res.render("admin/admin", {
+			layout: 'admin',
+			admin,
+			overAll,
+			cscNo,
+			statNo,
+			mathNo
+		});
+	} catch (error) { }
 };
 exports.getRegister = async (req, res) => {
 	res.render('admin/register', {
@@ -38,14 +38,16 @@ exports.getRegister = async (req, res) => {
 	})
 };
 exports.login = async (req, res, next) => {
-	let { email } = req.body
-	let admin = await Admin.findOne({ email: email })
-	req.session.admin = admin;
-	passport.authenticate('local', {
-		successRedirect: '/admin/dashboard',
-		failureRedirect: '/admin/login',
-		failureFlash: true
-	})(req, res, next);
+	try {
+		let { email } = req.body
+		let admin = await Admin.findOne({ email: email })
+		req.session.admin = admin;
+		passport.authenticate('local', {
+			successRedirect: '/admin/dashboard',
+			failureRedirect: '/admin/login',
+			failureFlash: true
+		})(req, res, next);
+	} catch (error) { }
 };
 exports.register = async (req, res) => {
 	console.log(req.body)

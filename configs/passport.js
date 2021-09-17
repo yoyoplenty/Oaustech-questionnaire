@@ -5,9 +5,9 @@ const bcrypt = require('bcryptjs')
 
 module.exports = function (passport) {
     passport.use(
-        new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+        new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
             //match Admin
-            Admin.findOne({ email: email })
+            await Admin.findOne({ email: email })
                 .then(admin => {
                     if (!admin) {
                         return done(null, false,
@@ -34,8 +34,8 @@ module.exports = function (passport) {
         done(null, admin.id);
     });
 
-    passport.deserializeUser((id, done) => {
-        Admin.findById(id, function (err, admin) {
+    passport.deserializeUser(async (id, done) => {
+        await Admin.findById(id, function (err, admin) {
             done(err, admin);
         });
     });

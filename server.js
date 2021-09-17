@@ -36,6 +36,7 @@ const index = require("./routes/index"),
 		console.log("Database connected");
 	}
 ); */
+
 //atlas mongodb
 mongoose.connect(process.env.DATABASE_ACCESS, {
 	useUnifiedTopology: true,
@@ -68,6 +69,7 @@ app.use(
 		secret: "questionear",
 		store: MongoStore.create({
 			mongoUrl: "mongodb://localhost:27017/studentquestionniare",
+			//mongoUrl: process.env.DATABASE_ACCESS,
 			saveUninitialized: true,
 			resave: false,
 			ttl: 1 * 24 * 60 * 60,
