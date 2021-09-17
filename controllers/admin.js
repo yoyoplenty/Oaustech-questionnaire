@@ -5,16 +5,31 @@ const app = express();
 const bcrypt = require('bcryptjs')
 const passport = require('passport');
 const admin = require("../models/admin");
+const Student = require("../models/Students"),
+	Result = require("../models/Results")
 
 exports.getHome = async (req, res) => {
 	res.render("admin/index");
 };
 exports.getAdminDashboard = async (req, res) => {
-	let admin = req.session.admin
-	console.log(admin)
+
+	let overAll = await Student.find({}).countDocuments()
+	let mathNo = await Student.find({ program: 'mathematics' }).countDocuments()
+	let cscNo = await Student.find({ program: 'csc' }).countDocuments()
+	let statNo = await Student.find({ program: 'stat' }).countDocuments()
+	const admin = req.session.admin
+
+	//participant
+	console.log(overAll)
+	console.log(mathNo)
+	//console.log(admin)
 	res.render("admin/admin", {
 		layout: 'admin',
-		admin
+		admin,
+		overAll,
+		cscNo,
+		statNo,
+		mathNo
 	});
 };
 exports.getRegister = async (req, res) => {

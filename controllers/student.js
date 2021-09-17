@@ -157,7 +157,6 @@ exports.getdashboard = async (req, res) => {
 	res.render("studentdashboard", { student: student, totalNo, ansNo, leftNo });
 };
 
-
 exports.firstsemester = async (req, res) => {
 	try {
 		let student = req.session.user
