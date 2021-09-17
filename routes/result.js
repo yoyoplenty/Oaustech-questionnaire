@@ -10,7 +10,7 @@ router.get("/", ensureAuthenticated, result.getresult);
 router.get("/", ensureAuthenticated, result.getresult);
 router.get("/all", ensureAuthenticated, result.getallResult);
 router.get("/:course", ensureAuthenticated, result.geteachresult);
-router.post("/", ensureAuthenticated, result.createresult);
+router.post("/", result.createresult);
 //Delete Results of each Course
 router.delete("/delete/:course", ensureAuthenticated, result.deleteResult);
 
