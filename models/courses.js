@@ -3,6 +3,10 @@ const slug = require("mongoose-slug-generator");
 
 const courseSchema = new mongoose.Schema(
 	{
+		program: {
+			type: String,
+			require: true,
+		},
 		courseName: {
 			type: String,
 			require: true,

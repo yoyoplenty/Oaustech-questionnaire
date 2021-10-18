@@ -137,7 +137,9 @@ exports.signin = async (req, res) => {
 	//user profile and data
 	req.session.user = student;
 	console.log(req.session.user)
-	let totalNo = await Courses.find({ level: student.level }).countDocuments()
+	let totalNo = await Courses.find({
+		$and: [{ program: student.program }, { level: student.level }],
+	}).countDocuments()
 	let ansNo = await Result.find({ matricNo: student.matricNo }).countDocuments()
 	let leftNo = totalNo - ansNo
 	//let eachCourse = await Result.find({ matricNo: student.matricNo })
@@ -148,7 +150,9 @@ exports.signin = async (req, res) => {
 
 exports.getdashboard = async (req, res) => {
 	let student = req.session.user
-	let totalNo = await Courses.find({ level: student.level }).countDocuments()
+	let totalNo = await Courses.find({
+		$and: [{ program: student.program }, { level: student.level }],
+	}).countDocuments()
 	let ansNo = await Result.find({ matricNo: student.matricNo }).countDocuments()
 	let leftNo = totalNo - ansNo
 	//let eachCourse = await Result.find({ matricNo: student.matricNo })
@@ -160,193 +164,52 @@ exports.getdashboard = async (req, res) => {
 exports.firstsemester = async (req, res) => {
 	try {
 		let student = req.session.user
+		console.log("student = ", student);
 
 		//to Get all courses
-		let Course = await Courses.find({})
-		let allCourses = Course.slice(0)
+		let Course = await Courses.find({
+			$and: [{ program: student.program }, { level: student.level }],
+		});
+		//	let allCourses = Course.slice(0)
+		console.log(Course)
 
-		//to get 100 level course
-		let all100 = allCourses.filter(function (first) {
-			return first.courseCode.charAt('0') == 1
-		})
-		//to get first semester 100 level courses 
-		let first100 = all100.filter(function (first) {
-			return first.courseCode.charAt('2') % 2 !== 0
-		})
+		let semesterCourses = Course.filter(function (first) {
+			return first.courseCode.charAt("2") % 2 !== 0;
+		});
 
-		//to get 200 level course
-		let all200 = allCourses.filter(function (first) {
-			return first.courseCode.charAt('0') == 2
-		})
-		//to get first semester 200 level courses 
-		let first200 = all200.filter(function (first) {
-			return first.courseCode.charAt('2') % 2 !== 0
-		})
-
-		//to get 300 level course
-		let all300 = allCourses.filter(function (first) {
-			return first.courseCode.charAt('0') == 3
-		})
-		//to get first semester 300 level courses 
-		let first300 = all300.filter(function (first) {
-			return first.courseCode.charAt('2') % 2 !== 0
-		})
-
-		//to get 400 level course
-		let all400 = allCourses.filter(function (first) {
-			return first.courseCode.charAt('0') == 4
-		})
-		//to get first semester 400 level courses 
-		let first400 = all400.filter(function (first) {
-			return first.courseCode.charAt('2') % 2 !== 0
-		})
-
-		//to get 500 level course
-		let all500 = allCourses.filter(function (first) {
-			return first.courseCode.charAt('0') == 5
-		})
-		//to get first semester 500 level courses 
-		let first500 = all500.filter(function (first) {
-			return first.courseCode.charAt('2') % 2 !== 0
-		})
-
-
-
-		//render first semester course of student in 100 level
-		if (student.level == 100) {
+		//render first semester course of student logged in
+		if (student) {
 			return res.render('courses/firstsemester', {
-				first: first100,
+				first: semesterCourses,
 				student
 			})
 		}
-		//render first semester course of student in 200 level
-		if (student.level == 200) {
-			return res.render('courses/firstsemester', {
-				first: first200,
-				student
-			})
-		}
-		//render first semester course of student in 300 level
-		if (student.level == 300) {
-			return res.render('courses/firstsemester', {
-				first: first300,
-				student
-			})
-		}
-
-		//render first semester course of student in 400 level
-		if (student.level == 400) {
-			return res.render('courses/firstsemester', {
-				first: first400,
-				student
-			})
-		}
-
-		//render first semester course of student in 500 level
-		if (student.level == 500) {
-			return res.render('courses/firstsemester', {
-				first: first500,
-				student
-			})
-		}
-
-
 	} catch (error) { }
 };
 
 exports.secondsemester = async (req, res) => {
 	try {
 		let student = req.session.user
+		console.log("student = ", student);
 
 		//to Get all courses
-		let Course = await Courses.find({})
-		let allCourses = Course.slice(0)
+		let Course = await Courses.find({
+			$and: [{ program: student.program }, { level: student.level }],
+		});
+		//	let allCourses = Course.slice(0)
+		console.log(Course)
 
-		//to get 100 level course
-		let all100 = allCourses.filter(function (second) {
-			return second.courseCode.charAt('0') == 1
-		})
-		//to get second semester 100 level courses 
-		let second100 = all100.filter(function (second) {
-			return second.courseCode.charAt('2') % 2 == 0
-		})
+		let semesterCourses = Course.filter(function (second) {
+			return second.courseCode.charAt("2") % 2 == 0;
+		});
 
-		//to get 200 level course
-		let all200 = allCourses.filter(function (second) {
-			return second.courseCode.charAt('0') == 2
-		})
-		//to get second semester 200 level courses 
-		let second200 = all200.filter(function (second) {
-			return second.courseCode.charAt('2') % 2 == 0
-		})
-
-		//to get 300 level course
-		let all300 = allCourses.filter(function (second) {
-			return second.courseCode.charAt('0') == 3
-		})
-		//to get second semester 300 level courses 
-		let second300 = all300.filter(function (second) {
-			return second.courseCode.charAt('2') % 2 == 0
-		})
-
-		//to get 400 level course
-		let all400 = allCourses.filter(function (second) {
-			return second.courseCode.charAt('0') == 4
-		})
-		//to get second semester 400 level courses 
-		let second400 = all400.filter(function (second) {
-			return second.courseCode.charAt('2') % 2 == 0
-		})
-
-		//to get 500 level course
-		let all500 = allCourses.filter(function (second) {
-			return second.courseCode.charAt('0') == 5
-		})
-		//to get second semester 500 level courses 
-		let second500 = all500.filter(function (second) {
-			return second.courseCode.charAt('2') % 2 == 0
-		})
-
-		//render second semester of student in 100 level
-		if (student.level == 100) {
+		//render second semester courses of student logged in
+		if (student) {
 			return res.render('courses/secondsemester', {
-				second: second100,
+				second: semesterCourses,
 				student
 			})
 		}
-
-		//render second semester of student in 200 level
-		if (student.level == 200) {
-			return res.render('courses/secondsemester', {
-				second: second200,
-				student
-			})
-		}
-
-		//render second semester of student in 300 level
-		if (student.level == 300) {
-			return res.render('courses/secondsemester', {
-				second: second300,
-				student
-			})
-		}
-
-		//render second semester of student in 400 level
-		if (student.level == 400) {
-			return res.render('courses/secondsemester', {
-				second: second400,
-				student
-			})
-		}
-
-		//render second semester of student in 500 level
-		if (student.level == 500) {
-			return res.render('courses/secondsemester', {
-				second: second500,
-				student
-			})
-		}
-
 
 	} catch (error) { }
 };

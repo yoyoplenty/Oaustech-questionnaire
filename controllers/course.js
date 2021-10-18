@@ -5,16 +5,37 @@ exports.createCourseForm = async (req, res) => {
 };
 exports.createCourse = async (req, res) => {
 	// res.render("addquestion");
-	let { level, courseName, courseCode } = req.body
+	let { level, courseName, courseCode, program } = req.body
 
-	if (!courseName || !level || !courseCode || isNaN(level)) {
+	console.log(req.body)
+	let theLevel = level.charAt("0")
+	let theCode = courseCode.charAt("0")
+	let theLength = courseCode.length
+
+	if (theLevel !== theCode) {
+		return res.render("admin/addcourses", {
+			error: "Course Code doesn't match selected Level",
+		});
+	}
+	if (theLength !== 3) {
+		return res.render("admin/addcourses", {
+			error: "invalid Course Code",
+		});
+	}
+
+	if (!courseName || !program || !level || !courseCode || isNaN(level)) {
 		return res.render("admin/addcourses", {
 			error: "incomplete details",
 		});
 	}
 
+
 	let course = await Course.findOne({
-		$and: [{ courseCode: courseCode }, { level: level }, { courseName: courseName }],
+		$and: [
+			{ courseCode: courseCode },
+			{ level: level },
+			{ program: program },
+			{ courseName: courseName }],
 	});
 
 
@@ -27,7 +48,8 @@ exports.createCourse = async (req, res) => {
 	let newcourse = new Course({
 		courseName,
 		courseCode,
-		level
+		level,
+		program
 	});
 	console.log(newcourse)
 	newcourse.save()
