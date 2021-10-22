@@ -1,0 +1,49 @@
+<div class="">
+    {{> Logo}}
+</div>
+<div class="container" style="height: 81vh;">
+
+    {{>messages}}
+
+    <div class="text-center my-3">
+        <span>
+
+        </span>
+    </div>
+
+    <div class="question-row row w-100 d-flex justify-content-center align-items-center">
+
+        <h4 class="text-secondary text-center mt-5 mb-3"><b>MAKE YOUR SELECTION</b></h4>
+
+        <div class="w-50 d-flex flex-column justify-content-center align-items-center">
+            <form action="getcourse" method="GET">
+                <select class="form-control mt-3 text-center" name="program" id="" required>
+                    <option value="" selected>---Select program---</option>
+                    <option value="mathematics">Mathematics</option>
+                    <option value="stat">Statistics</option>
+                    <option value="csc">Computer science</option>
+                    {{!-- <option value="400">400</option>
+                    <option value="500">500</option> --}}
+                </select>
+                <select class="form-control mt-3" name="level" id="" required>
+                    <option value="" selected>---Select level---</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="400">400</option>
+                    <option value="500">500</option>
+                </select>
+                <select class="form-control mt-3 mb-4" name="semester" id="" required>
+                    <option value="" selected>---Select semester---</option>
+                    <option value="1">First</option>
+                    <option value="2">Second</option>
+                </select>
+                <input class="my-btn-mobile d-inline btn-danger w-100" type="submit" value="Get Courses"
+                    onclick="document.getElementById('getcourse').submit()">
+                {{!-- <button class="my-btn-mobile d-inline btn-danger w-50" type="submit">Get Courses</button> --}}
+            </form>
+
+        </div>
+    </div>
+</div>
+{{>footer}}

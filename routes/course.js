@@ -7,7 +7,8 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../configure/auth
 require('../configure/passport')(passport)
 
 router.get("/", ensureAuthenticated, course.createCourseForm);
-router.get("/all", ensureAuthenticated, course.getAllCourse);
+router.get("/select", course.getcourseForm);
+router.get("/getcourse", course.getCourse)
 router.get("/edit/:id", ensureAuthenticated, course.getEditCourse);
 //update and delete courses
 router.put("/:id", ensureAuthenticated, course.editCourse);

@@ -72,34 +72,51 @@ exports.getresult = async (req, res) => {
     try {
         //get all courses
         let Course = await Courses.find({})
-        let totalNo = await Courses.find({}).countDocuments()
         let allCourses = Course.slice(0)
 
         //render the courses based on level
-
         //to get 100 level course
-        let all100 = allCourses.filter(function (first) {
+        let First = allCourses.filter(function (first) {
             return first.courseCode.charAt('0') == 1
         })
         //to get 200 level course
-        let all200 = allCourses.filter(function (first) {
+        let Second = allCourses.filter(function (first) {
             return first.courseCode.charAt('0') == 2
         })
         //to get 300 level course
-        let all300 = allCourses.filter(function (first) {
+        let Third = allCourses.filter(function (first) {
             return first.courseCode.charAt('0') == 3
         })
         //to get 400 level course
-        let all400 = allCourses.filter(function (first) {
+        let Fourth = allCourses.filter(function (first) {
             return first.courseCode.charAt('0') == 4
         })
         //to get 500 level course
-        let all500 = allCourses.filter(function (first) {
+        let Fifth = allCourses.filter(function (first) {
             return first.courseCode.charAt('0') == 5
         })
+        //Render so they wont be duplicates
+        //100 level all department
+        let firstArray = First.map(e => e.course)
+        let all100 = [...new Set(firstArray)];
+        //200 level
+        let secondArray = Second.map(e => e.course)
+        let all200 = [...new Set(secondArray)];
+        //300 level 
+        let thirdArray = Third.map(e => e.course)
+        let all300 = [...new Set(thirdArray)];
+        //400 level
+        let fourthArray = Fourth.map(e => e.course)
+        let all400 = [...new Set(fourthArray)];
+        //500 level
+        let fifthArray = Fifth.map(e => e.course)
+        let all500 = [...new Set(fifthArray)];
 
-        //still want to render each courses in bootstrap row based on level
-        //dont want it to be hard coded
+        //Total Number
+        let totalNo = all100.length + all200.length + all300.length + all300.length + all500.length
+
+        //Render the Pages
+
         console.log(totalNo)
         res.render('admin/allcourse', {
             all100,

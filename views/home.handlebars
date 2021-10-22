@@ -1,23 +1,124 @@
-<section id="banner-desktop">
-    <div class="container" style="height: 40vh;">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center">Welcome</h1>
-                <p class="text-center">Please Select an option below</p>
+<section id="nav-bar">
+    <nav class="navbar text-white navbar-expand-lg navbar-dark fixed-top bg-danger shadow-lg rounded">
+        <div class="container-fluid">
+            <a class="navbar-brand bg-transparent text-danger d-none d-md-block" href="#">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="#"><b>Home</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><b>About</b></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="pl-2 fas fa-users"></i>
+                            <b>Student's Management</b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/student/signup">Register</a></li>
+                            <li><a class="dropdown-item" href="/student/login">Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <div class="row text-center">
-            <div class="col-md-6">
-                <button class="my-btn btn-danger"><a class="w-100 py-auto" href="/student/signup">
-                        Registration</a></button>
-            </div>
-
-            <div class="col-md-6">
-                <button class="my-btn btn-danger"><a class=" w-100 py-auto" href="/student/login">Login</a></button>
-            </div>
-
+    </nav>
+</section>
+<section id="carousel-place">
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade caption-va text-light"
+        data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
         </div>
-
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/uploads/People.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4"><b>Welcome to the Department of Mathematical Sciences</b></h1>
+                    <h3 class=""><b>OLUSEGUN AGAGU UNIVERSITY OF SCIENCE AND TECHNOLOGY</b></h3>
+                    <h2 class=""><b><i>Student Web Assessment and Evaluation System</i></b></h2>
+                    <button class="btn btn-lg bg-danger text-light"><a class="nav-link text-light" target="_blank"
+                            style="text-decoration: none;" href="http://oaustech.edu.ng/"><b>Learn more</b></a></button>
+                </div>
+            </div>
+            <div class="carousel-item h-75">
+                <img src="/uploads/libary.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4"><b>Welcome to the Department of Mathematical Sciences</b></h1>
+                    <h3 class=""><b>OLUSEGUN AGAGU UNIVERSITY OF SCIENCE AND TECHNOLOGY</b></h3>
+                    <h2 class=""><b><i>Student Web Assessment and Evaluation System</i></b></h2>
+                    <button class="btn btn-lg bg-danger text-light">Learn more</button>
+                </div>
+            </div>
+            <div class="carousel-item h-75">
+                <img src="/uploads/People.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4"><b>Welcome to the Department of Mathematical Sciences</b></h1>
+                    <h3 class=""><b>OLUSEGUN AGAGU UNIVERSITY OF SCIENCE AND TECHNOLOGY</b></h3>
+                    <h2 class=""><b><i>Student Web Assessment and Evaluation System</i></b></h2>
+                    <button class="btn btn-lg bg-danger text-light">Learn more</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<section id="about">
+    <div class="container mt-3 text-center">
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-dark mb-0"><b>ABOUT US</b></h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line bg-danger"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line bg-danger"></div>
+        </div>
+        <!--About the Department story-->
+        <h4 class="text-secondary lead lh-lg italics"><b>
+                The Department of Mathematics, OAUSTECH comprises of three programmes; Mathematics, Computer Science and
+                Statistics.
+                The Department is presently headed by Dr (Ms) A.J Ikuomola
+            </b></h4>
+    </div>
+</section>
+<section id="about-system">
+    <div class="container mt-3 text-center">
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-dark mb-0"><b>THE SYSTEM</b></h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line bg-danger"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line bg-danger"></div>
+        </div>
+        <!--About the system -->
+        <h4 class="text-secondary lead lh-lg italics"><b> Questionnaire is designed to assess Lecture's capacity to
+                deliver lecture effectively well such that the
+                objectives of
+                the course are achieved. Please complete the questionnaire objectively because your response will go a
+                long way in helping
+                the University to address shortcomings in lecture delivery and you can be rest assured of the
+                confidentiality of your response.</b></h4>
     </div>
 </section>

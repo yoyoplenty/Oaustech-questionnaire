@@ -1,17 +1,21 @@
-<div class="container mb-3 pb-4 text-center">
+<div class="mb-2">
+    {{> Logo}}
+</div>
+<div class="container vh-100 mb-3 pb-4 text-center">
     {{>messages}}
 
-<div class="d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center">
 
-    <form method="POST" action="/question/">
-        <h3 id="level"><b>Post Questions</b></h3>
-        {{! remember to capitalize the courses posted}}
-        <div class="mb-3 pt-5">
-            <label for="exampleInputFirstName" class="form-label">Post Questions</label>
-            <textarea name="question"  class="form-control" id="" cols="30" rows="10"></textarea>
-        </div>
+        <form method="POST" action="/question/">
+            <h3 id="level"><b>Post Questions</b></h3>
+            {{! remember to capitalize the courses posted}}
+            <div class="mb-3 pt-5">
+                <label for="exampleInputFirstName" class="form-label">Post Questions</label>
+                <textarea name="question" class="form-control" id="" cols="30" rows="10"></textarea>
+            </div>
 
-        <button type="submit" class="btn btn-danger">Post Questions</button>
-    </form>
+            <button type="submit" class="btn btn-danger">Post Questions</button>
+        </form>
+    </div>
 </div>
-</div>
+{{>footer}}

@@ -23,7 +23,7 @@ const index = require("./routes/index"),
 	course = require("./routes/course"),
 	question = require("./routes/questions"),
 	student = require("./routes/students"),
-	result = require("./routes/result")
+	result = require("./routes/result");
 
 //set Database
 mongoose.connect(

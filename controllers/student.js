@@ -10,7 +10,9 @@ exports.getRegistrationForm = async (req, res) => {
 };
 
 exports.getLoginForm = async (req, res) => {
-	res.render("login");
+	res.render("login", {
+		layout: 'form',
+	});
 };
 
 exports.signup = async (req, res) => {
@@ -127,8 +129,6 @@ exports.signin = async (req, res) => {
 		student.password
 	);
 
-	console.log(checkPassword);
-
 	if (checkPassword !== true) {
 		return res.render("login", {
 			message: "please login with a valid credentials",
@@ -136,7 +136,6 @@ exports.signin = async (req, res) => {
 	}
 	//user profile and data
 	req.session.user = student;
-	console.log(req.session.user)
 	let totalNo = await Courses.find({
 		$and: [{ program: student.program }, { level: student.level }],
 	}).countDocuments()

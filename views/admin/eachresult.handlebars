@@ -1,3 +1,6 @@
+<div class="">
+    {{> Logo}}
+</div>
 <section id="" style="padding-top: 2%;">
 
     <div class="col-12 text-center">
@@ -53,7 +56,7 @@
 
             <div class="col-7 mx-0">
                 {{#each question}}
-                <div class="col-12 py-2 mx-0">
+                <div class="col-11 py-1 mx-0">
                     <p class="text-start">
                         {{this.sn}}. {{this.question}}
                     </p>
@@ -63,7 +66,7 @@
 
             <div class="col-5 mx-0">
                 {{#each Response}}
-                <div class="col-12 py-2">
+                <div class="col-12 py-1">
                     <ul class="nav text-center">
                         <li class="mx-auto list-item ">
                             {{#if this.stronglyAgree }}
