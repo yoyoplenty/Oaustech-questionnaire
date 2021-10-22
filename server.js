@@ -26,7 +26,7 @@ const index = require("./routes/index"),
 	result = require("./routes/result");
 
 //set Database
-mongoose.connect(
+/* mongoose.connect(
 	"mongodb://localhost:27017/studentquestionniare",
 	{
 		useUnifiedTopology: true,
@@ -36,17 +36,17 @@ mongoose.connect(
 	() => {
 		console.log("Database connected");
 	}
-);
+); */
 
 //atlas mongodb
-/*
+
 mongoose.connect(process.env.DATABASE_ACCESS, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
 	useCreateIndex: true,
 }, () => {
 	console.log('Database connected')
-}) */
+})
 
 morgan("dev");
 
