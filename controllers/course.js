@@ -146,7 +146,8 @@ exports.editCourse = async (req, res) => {
 exports.deleteCourse = async (req, res) => {
 	try {
 		let ID = req.params.id
-		await Course.findOneAndDelete(ID).exec();
+		console.log(ID)
+		await Course.findByIdAndDelete(ID);
 		req.flash(`success`, `Course was deleted successfully`)
 		res.redirect('/course/select')
 	} catch (error) { }
