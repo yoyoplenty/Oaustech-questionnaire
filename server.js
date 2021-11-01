@@ -26,7 +26,8 @@ const index = require("./routes/index"),
 	result = require("./routes/result");
 
 //set Database
-/* mongoose.connect(
+/* 
+mongoose.connect(
 	"mongodb://localhost:27017/studentquestionniare",
 	{
 		useUnifiedTopology: true,

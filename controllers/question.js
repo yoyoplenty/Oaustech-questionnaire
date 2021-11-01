@@ -44,7 +44,6 @@ exports.geteditQuestion = async (req, res) => {
 };
 exports.editQuestion = async (req, res) => {
 	try {
-		console.log(req.body)
 		let ID = req.params.id
 
 		//setting the specific question to a variable 

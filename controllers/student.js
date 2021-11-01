@@ -16,8 +16,6 @@ exports.getLoginForm = async (req, res) => {
 };
 
 exports.signup = async (req, res) => {
-	console.log(req.body);
-
 	var {
 		firstname,
 		surname,
@@ -163,8 +161,6 @@ exports.getdashboard = async (req, res) => {
 exports.firstsemester = async (req, res) => {
 	try {
 		let student = req.session.user
-		console.log("student = ", student);
-
 		//to Get all courses
 		let Course = await Courses.find({
 			$and: [{ program: student.program }, { level: student.level }],

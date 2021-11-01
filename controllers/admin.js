@@ -18,9 +18,6 @@ exports.getAdminDashboard = async (req, res) => {
 		let statNo = await Student.find({ program: 'stat' }).countDocuments()
 		const admin = req.session.admin
 
-		//participant
-		console.log(overAll)
-		console.log(mathNo)
 		//console.log(admin)
 		res.render("admin/admin", {
 			layout: 'admin',
