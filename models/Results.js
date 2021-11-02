@@ -8,7 +8,7 @@ const resultSchema = new mongoose.Schema(
             required: true,
         },
         matricNo: {
-            type: Number,
+            type: String,
             required: true
         },
         program: {
