@@ -166,7 +166,6 @@ exports.firstsemester = async (req, res) => {
 			$and: [{ program: student.program }, { level: student.level }],
 		});
 		//	let allCourses = Course.slice(0)
-		console.log(Course)
 
 		let semesterCourses = Course.filter(function (first) {
 			return first.courseCode.charAt("2") % 2 !== 0;
@@ -185,8 +184,6 @@ exports.firstsemester = async (req, res) => {
 exports.secondsemester = async (req, res) => {
 	try {
 		let student = req.session.user
-		console.log("student = ", student);
-
 		//to Get all courses
 		let Course = await Courses.find({
 			$and: [{ program: student.program }, { level: student.level }],
@@ -216,7 +213,9 @@ exports.getEachCourseQuestion = async (req, res) => {
 		let courses = req.params
 		//set session to particular course
 		req.session.course = courses;
-
+		let Course = await Courses.findOne({
+			$and: [{ program: student.program }, { level: student.level }, { course: courses.course }],
+		});
 		//get Questions from database
 		let question = await Question.find({})
 		question.sort((a, b) => a.sn - b.sn)
@@ -224,7 +223,8 @@ exports.getEachCourseQuestion = async (req, res) => {
 		if (courses) {
 			return res.render('question', {
 				question: question,
-				course: courses.course
+				course: Course.course,
+				courseTitle: Course.courseTitle
 			})
 		}
 	} catch (error) { }

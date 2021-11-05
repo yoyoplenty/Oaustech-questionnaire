@@ -110,7 +110,7 @@ exports.getEditCourse = async (req, res) => {
 }
 exports.editCourse = async (req, res) => {
 	try {
-		let { level, courseName, courseCode, program } = req.body;
+		let { level, courseName, courseCode, program, courseTitle } = req.body;
 
 		let ID = req.params.id
 
@@ -131,6 +131,7 @@ exports.editCourse = async (req, res) => {
 		courses.courseCode = courseCode
 		courses.level = level
 		courses.program = program
+		courses.courseTitle = courseTitle
 
 		//get it saved
 		newCourse = await courses.save()
