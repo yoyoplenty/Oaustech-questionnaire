@@ -20,8 +20,9 @@
                 value="{{course.courseTitle}}" required>
         </div>
         <label for="exampleInputPassword1" class="form-label"><b>Program</b></label>
-        <select class="form-control mb-1" name="program" id="" required>
-            <option value="" selected>program</option>
+        <select class="form-control mb-1" name="program" id="" value="{{course.program}}">
+            <option value="{{course.program}}" hidden="hidden" selected="selected">{{course.program}}</option>
+            <option value="">program</option>
             <option value="mathematics">Mathematics</option>
             <option value="stat">Statistics</option>
             <option value="csc">Computer science</option>
@@ -29,8 +30,10 @@
             <option value="500">500</option> --}}
         </select>
         <label for="exampleInputPassword1" class="form-label"><b>level</b></label>
-        <select class="form-select mb-3" name="level" aria-label="Default select example" required>
-            <option selected>Level</option>
+        <select class="form-select mb-3" name="level" aria-label="Default select example" value="{{course.level}}"
+            required>
+            <option value="{{course.level}}" hidden="hidden" selected="selected">{{course.level}}</option>
+            <option>Level</option>
             <option value=100>100</option>
             <option value=200>200</option>
             <option value=300>300</option>
